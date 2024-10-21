@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="card-body">
+    <h7 class="card-description">Nəqliyat vasitəsinin silinməsi:</h7>
+    <div class="table-responsive pt-3">
+    <p class="h2">"{{ object }}" nəqliyat vasitəsini silmək istədiyinizə əminsiniz?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger text-white fw-bold" type="submit">Silmək</button>
+    </form>
+    </div>
+  </div>
+{% endblock %}
