@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="card-body">
+    <h7 class="card-description">Nəqliyat siyahısı:</h7>
+    {% comment %}
+    <p class="card-description">
+      Add class <code>.table-bordered</code>
+    </p>
+    <p class="card-description">Sifarişin nömrəsi:</p>
+    {% endcomment %}
+    <div class="table-responsive pt-1">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th class="bg-light">№</th>
+            <th class="bg-light">Ad</th>
+            <th class="bg-light">Uzunluq,<br/>mm</th>
+            <th class="bg-light">En,<br/>mm</th>
+            <th class="bg-light">Hündürlük,<br/>mm</th>
+            <th class="bg-light">Maksimal<br/>yükləmə,<br/>kq</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in transport %}
+          <tr>
+            <td class="m-0 p-0">{{ forloop.counter }}</td>
+            <td class="m-0 p-0"><a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.name }}</a></td>
+            <td class="m-0 p-0">{{ item.length }}</td>
+            <td class="m-0 p-0">{{ item.width }}</td>
+            <td class="m-0 p-0">{{ item.height }}</td>
+            <td class="m-0 p-0">{{ item.max_load }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-end">
+        <div class="mt-2"><a class="btn btn-primary text-white" href="{% url 'transport_add' %}">+</a></div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+{% endblock %}
