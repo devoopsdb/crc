@@ -14,7 +14,9 @@ Make sure Python is installed and added to your system `PATH`.
 ### 2. Clone the repository
 
 bash:
+
 git clone https://github.com/devoopsdb/crc.git
+
 cd crc
 
 3. Create a virtual environment
