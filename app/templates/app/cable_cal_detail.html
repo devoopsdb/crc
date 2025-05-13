@@ -1,65 +1,73 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-  <div class="card-body">
-    <h7 class="card-description">Sifarişin nömrəsi: {{ cable_cal.order_num }} &nbsp&nbsp&nbsp Yaradılma tarixi: {{ cable_cal.created_at|date:"d.m.Y" }}</h7>
-    <div class="table-responsive pt-3">
-      <table class="table table-bordered text-center">
-        <thead>
-          <tr>
-            <th class="bg-light">Kabelin <br/>kodu</th>
-            <th class="bg-light">Kabelin <br/>adı</th>
-            <th class="bg-light">Sifariş <br/>uzunluq, <br/>m</th>
-            <th class="bg-light">Baraban <br/>növü</th>
-            <th class="bg-light">Bir <br/>barabana <br/>dolanan <br/>miqdar, <br/>m</th>
-            <th class="bg-light">Baraban <br/>sayı</th>
-            <th class="bg-light">Netto <br/>1 baraban, <br/>kq</th>
-            <th class="bg-light">Brutto <br/>1 baraban, <br/>kq</th>
-            <th class="bg-light">Netto <br/>ümumi, <br/>kq</th>
-            <th class="bg-light">Brutto <br/>ümumi, <br/>kq</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="table">
-            <td>{{ cable_cal.cod|linebreaks  }}</td>
-            <td>{{ cable_cal.name|linebreaks  }}</td>
-            <td>{{ cable_cal.order_len|linebreaks  }}</td>
-            <td>{{ cable_cal.reel_name|linebreaks  }}</td>
-            <td>{{ cable_cal.reel_len|linebreaks  }}</td>
-            <td>{{ cable_cal.reel_num|linebreaks  }}</td>
-            <td>{{ cable_cal.netto_1|linebreaks  }}</td>
-            <td>{{ cable_cal.brutto_1|linebreaks  }}</td>
-            <td>{{ cable_cal.netto_all|linebreaks  }}</td>
-            <td>{{ cable_cal.brutto_all|linebreaks  }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-end">
-        <div class="p-2 bd-highlight"><a class="btn btn-danger text-white fw-bold" href="{% url 'cable_del' pk=object.pk %}">-</a></div>
-      </div>
-    </div>
-    <table class="table table-bordered text-center mt-5 w-50">
-  <thead>
-    <tr>
-      <th>Kabelin <br/>kodu</th>
-      <th>Kabelin <br/>adı</th>
-      <th>Kabelin <br/>çəki, <br/>kq/m</th>
-      <th>Kabelin <br/>diametr, <br/>mm</th>
-      <th>Kabelin <br/>damar <br/>sayı</th>
-      <th>Maksimal <br/>istehsalat <br/>uzunluğu, <br/>m</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ cable_cal.cod|linebreaks }}</td>
-      <td>{{ cable_cal.name|linebreaks }}</td>
-      <td>{{ cable_cal.mass|linebreaks }}</td>
-      <td>{{ cable_cal.diameter|linebreaks }}</td>
-      <td>{{ cable_cal.con_num|linebreaks }}</td>
-      <td>{{ cable_cal.max_len|linebreaks }}</td>
-    </tr>
-  </tbody>
-</table>
-  </div>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card-body">
+	<h7 class="card-description"
+		>Sifarişin nömrəsi: {{ cable_cal.order_num }} &nbsp&nbsp&nbsp Yaradılma
+		tarixi: {{ cable_cal.created_at|date:"d.m.Y" }}</h7
+	>
+	<div class="table-responsive pt-3">
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th class="bg-light">Kabelin <br />kodu</th>
+					<th class="bg-light">Kabelin <br />adı</th>
+					<th class="bg-light">Sifariş <br />uzunluq, <br />m</th>
+					<th class="bg-light">Baraban <br />növü</th>
+					<th class="bg-light">
+						Bir <br />barabana <br />dolanan <br />miqdar, <br />m
+					</th>
+					<th class="bg-light">Baraban <br />sayı</th>
+					<th class="bg-light">Netto <br />1 baraban, <br />kq</th>
+					<th class="bg-light">Brutto <br />1 baraban, <br />kq</th>
+					<th class="bg-light">Netto <br />ümumi, <br />kq</th>
+					<th class="bg-light">Brutto <br />ümumi, <br />kq</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="table">
+					<td>{{ cable_cal.cod|linebreaks }}</td>
+					<td>{{ cable_cal.name|linebreaks }}</td>
+					<td>{{ cable_cal.order_len|linebreaks }}</td>
+					<td>{{ cable_cal.reel_name|linebreaks }}</td>
+					<td>{{ cable_cal.reel_len|linebreaks }}</td>
+					<td>{{ cable_cal.reel_num|linebreaks }}</td>
+					<td>{{ cable_cal.netto_1|linebreaks }}</td>
+					<td>{{ cable_cal.brutto_1|linebreaks }}</td>
+					<td>{{ cable_cal.netto_all|linebreaks }}</td>
+					<td>{{ cable_cal.brutto_all|linebreaks }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-end">
+			<div class="p-2 bd-highlight">
+				<a
+					class="btn btn-danger text-white fw-bold"
+					href="{% url 'cable_del' pk=object.pk %}"
+					>-</a
+				>
+			</div>
+		</div>
+	</div>
+	<table class="table table-bordered text-center mt-5 w-50">
+		<thead>
+			<tr>
+				<th>Kabelin <br />kodu</th>
+				<th>Kabelin <br />adı</th>
+				<th>Kabelin <br />çəki, <br />kq/m</th>
+				<th>Kabelin <br />diametr, <br />mm</th>
+				<th>Kabelin <br />damar <br />sayı</th>
+				<th>Maksimal <br />istehsalat <br />uzunluğu, <br />m</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ cable_cal.cod|linebreaks }}</td>
+				<td>{{ cable_cal.name|linebreaks }}</td>
+				<td>{{ cable_cal.mass|linebreaks }}</td>
+				<td>{{ cable_cal.diameter|linebreaks }}</td>
+				<td>{{ cable_cal.con_num|linebreaks }}</td>
+				<td>{{ cable_cal.max_len|linebreaks }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 {% endblock %}

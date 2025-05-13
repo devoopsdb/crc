@@ -1,39 +1,31 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-  <div class="card-body">
-    {% comment %}
-    <h7 class="card-description">Sifarişin nömrəsi:</h7>
-    <p class="card-description">
-      Add class <code>.table-bordered</code>
-    </p>
-    <p class="card-description">Sifarişin nömrəsi:</p>
-    {% endcomment %}
-    <div class="table-responsive pt-1 align-content-center d-flex justify-content-center">
-      <table class="fixed-header-table table table-bordered text-center w-50">
-        <thead>
-          <tr>
-            <th class="bg-light">№</th>
-            <th class="bg-light">Sifarişin nömrəsi</th>
-            <th class="bg-light">Yaradılma tarixi</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for item in cable_cal %}
-          <tr>
-            <td class="m-0 p-0">{{ forloop.revcounter }}</td>
-            <td class="m-0 p-0"><a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.order_num }}</a></td>
-            <td class="m-0 p-0">{{ item.created_at|date:"d.m.Y" }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-{% comment %}
-  {{ created_at|date:"d.m.Y H:i:s" }}
-{% endcomment %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card-body">
+	<div
+		class="table-responsive pt-1 align-content-center d-flex justify-content-center"
+	>
+		<table class="fixed-header-table table table-bordered text-center w-50">
+			<thead>
+				<tr>
+					<th class="bg-light">№</th>
+					<th class="bg-light">Sifarişin nömrəsi</th>
+					<th class="bg-light">Yaradılma tarixi</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in cable_cal %}
+				<tr>
+					<td class="m-0 p-0">{{ forloop.revcounter }}</td>
+					<td class="m-0 p-0">
+						<a class="nav-link" href="{{ item.get_absolute_url }}"
+							>{{ item.order_num }}</a
+						>
+					</td>
+					<td class="m-0 p-0">{{ item.created_at|date:"d.m.Y" }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
 
 {% endblock %}
