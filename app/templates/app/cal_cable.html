@@ -1,51 +1,43 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-  <div class="card-body">
-    <h4 class="card-title">Barabanların hesablanması</h4>
-    {% comment %} <p class="card-description">
-      Add class <code>.table-bordered</code>
-    </p> {% endcomment %}
-    <p class="card-description">Sifarişin nömrəsi:</p>
-    <div class="table-responsive pt-3">
-      <table class="table table-bordered text-center">
-        <thead>
-          <tr>
-            <th>Kabelin adı</th>
-            <th>Sifariş uzunluq, m</th>
-            <th>Nəqliyat vasitsi</th>
-            <th>Çəki, kq/m</th>
-            <th>Diametr, mm</th>
-            <th>Damarın diametri, mm</th>
-            <th>Damar sayı</th>
-            <th>İstehsalat uzunluğu, m</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>N2XH 2x2.5(RM) - 0.6/1 kV</td>
-            <td>5000</td>
-            <td>TIR</td>
-            <td>1.52</td>
-            <td>14.3</td>
-            <td>1.97</td>
-            <td>2</td>
-            <td>3000</td>
-          </tr>
-          <tr>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-end">
-        <div class="p-2 bd-highlight"><button type="button" class="btn btn-primary text-white">Hesabla</button></div>
-      </div>
-
-      {{ form.rows }}
-
-
-    </div>
-
-
-
-  </div>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card-body">
+	<h4 class="card-title">Barabanların hesablanması</h4>
+	<p class="card-description">Sifarişin nömrəsi:</p>
+	<div class="table-responsive pt-3">
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th>Kabelin adı</th>
+					<th>Sifariş uzunluq, m</th>
+					<th>Nəqliyat vasitsi</th>
+					<th>Çəki, kq/m</th>
+					<th>Diametr, mm</th>
+					<th>Damarın diametri, mm</th>
+					<th>Damar sayı</th>
+					<th>İstehsalat uzunluğu, m</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>N2XH 2x2.5(RM) - 0.6/1 kV</td>
+					<td>5000</td>
+					<td>TIR</td>
+					<td>1.52</td>
+					<td>14.3</td>
+					<td>1.97</td>
+					<td>2</td>
+					<td>3000</td>
+				</tr>
+				<tr></tr>
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-end">
+			<div class="p-2 bd-highlight">
+				<button type="button" class="btn btn-primary text-white">
+					Hesabla
+				</button>
+			</div>
+		</div>
+		{{ form.rows }}
+	</div>
+</div>
 {% endblock %}

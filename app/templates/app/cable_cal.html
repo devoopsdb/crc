@@ -1,103 +1,125 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="card-body">
-    {% comment %}
-    <h4 class="card-title">Barabanların hesablanması</h4>
-    <p class="card-description">
-        Add class <code>.table-bordered</code>
-    </p>
-    {% endcomment %}
-    <form action="{% url 'cable_cal' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <p class="card-description">Sifarişin nömrəsi: {{ form.order_num }} &nbsp&nbsp&nbsp Nəqliyyat vasitəsi: {{ form.transport }}
-            <button type="button" style="height: 25px; width: 25px; float: right;" class="btn btn-success text-end text-white fw-bold" onclick="addRow()">+</button>
-            <button type="button" style="height: 25px; width: 25px; float: right;" class="btn btn-danger text-end text-white fw-bold" onclick="deleteRow()">-</button></p>
-        <div class="table-container table-responsive">
-            <table class="fixed-header-table table table-bordered text-center">
-                <thead>
-                <tr>
-                    <th class="bg-light m-0 p-1">#</th>
-                    <th class="bg-light m-0 p-1">№</th>
-                    <th class="bg-light m-0 p-1">Kabelin <br/>kodu</th>
-                    <th class="bg-light m-0 p-1">Kabelin <br/>adı</th>
-                    <th class="bg-light m-0 p-1">Sifariş <br/>uzunluq, <br/>m</th>
-                    <th class="bg-light m-0 p-1">Kabelin <br/>çəki, <br/>kq/m</th>
-                    <th class="bg-light m-0 p-1">Kabelin <br/>diametr, <br/>mm</th>
-                    <th class="bg-light m-0 p-1">Kabelin <br/>damar <br/>sayı</th>
-                    <th class="bg-light m-0 p-1">Maksimal <br/>istehsalat <br/>uzunluğu, <br/>m</th>
-                </tr>
-                </thead>
-                <tbody id="form-container">
-                <tr>
-                    <td class="m-0 p-0"><input type="checkbox" class="form-check-input"></td>
-                    <td class="m-0 p-0">1</td>
-                    <td class="m-0 p-0">{{ form.cod }}</td>
-                    <td class="m-0 p-0">{{ form.name }}</td>
-                    <td class="m-0 p-0">{{ form.order_len }}</td>
-                    <td class="m-0 p-0">{{ form.mass }}</td>
-                    <td class="m-0 p-0">{{ form.diameter }}</td>
-                    <td class="m-0 p-0">{{ form.con_num }}</td>
-                    <td class="m-0 p-0">{{ form.max_len }}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="d-flex justify-content-end">
-            <div class="mt-2">
-                <button class="btn btn-primary text-white fw-bold" type="submit">Hesablamaq</button>
-            </div>
-        </div>
-    </form>
+	<form
+		action="{% url 'cable_cal' %}"
+		method="post"
+		enctype="multipart/form-data"
+	>
+		{% csrf_token %}
+		<p class="card-description">
+			Sifarişin nömrəsi: {{ form.order_num }} &nbsp&nbsp&nbsp Nəqliyyat
+			vasitəsi: {{ form.transport }}
+			<button
+				type="button"
+				style="height: 25px; width: 25px; float: right"
+				class="btn btn-success text-end text-white fw-bold"
+				onclick="addRow()"
+			>
+				+
+			</button>
+			<button
+				type="button"
+				style="height: 25px; width: 25px; float: right"
+				class="btn btn-danger text-end text-white fw-bold"
+				onclick="deleteRow()"
+			>
+				-
+			</button>
+		</p>
+		<div class="table-container table-responsive">
+			<table class="fixed-header-table table table-bordered text-center">
+				<thead>
+					<tr>
+						<th class="bg-light m-0 p-1">#</th>
+						<th class="bg-light m-0 p-1">№</th>
+						<th class="bg-light m-0 p-1">Kabelin <br />kodu</th>
+						<th class="bg-light m-0 p-1">Kabelin <br />adı</th>
+						<th class="bg-light m-0 p-1">Sifariş <br />uzunluq, <br />m</th>
+						<th class="bg-light m-0 p-1">Kabelin <br />çəki, <br />kq/m</th>
+						<th class="bg-light m-0 p-1">Kabelin <br />diametr, <br />mm</th>
+						<th class="bg-light m-0 p-1">Kabelin <br />damar <br />sayı</th>
+						<th class="bg-light m-0 p-1">
+							Maksimal <br />istehsalat <br />uzunluğu, <br />m
+						</th>
+					</tr>
+				</thead>
+				<tbody id="form-container">
+					<tr>
+						<td class="m-0 p-0">
+							<input type="checkbox" class="form-check-input" />
+						</td>
+						<td class="m-0 p-0">1</td>
+						<td class="m-0 p-0">{{ form.cod }}</td>
+						<td class="m-0 p-0">{{ form.name }}</td>
+						<td class="m-0 p-0">{{ form.order_len }}</td>
+						<td class="m-0 p-0">{{ form.mass }}</td>
+						<td class="m-0 p-0">{{ form.diameter }}</td>
+						<td class="m-0 p-0">{{ form.con_num }}</td>
+						<td class="m-0 p-0">{{ form.max_len }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="d-flex justify-content-end">
+			<div class="mt-2">
+				<button class="btn btn-primary text-white fw-bold" type="submit">
+					Hesablamaq
+				</button>
+			</div>
+		</div>
+	</form>
 
-    <script>
-function addRow() {
-    var formContainer = document.getElementById('form-container');
-    // Получаем все строки таблицы
-    var rows = formContainer.getElementsByTagName('tr');
+	<script>
+		function addRow() {
+			var formContainer = document.getElementById('form-container')
+			// Получаем все строки таблицы
+			var rows = formContainer.getElementsByTagName('tr')
 
-    // Ищем максимальный номер строки в текущей таблице
-    var maxRowCount = 0;
-    for (var i = 0; i < rows.length; i++) {
-        // Находим ячейку с номером строки
-        var cell = rows[i].getElementsByTagName('td')[1];
-        if (cell) {
-            // Получаем значение номера строки (преобразуем его в число)
-            var rowNum = parseInt(cell.textContent.trim());
-            // Если это число и оно больше текущего максимального, обновляем максимум
-            if (!isNaN(rowNum) && rowNum > maxRowCount) {
-                maxRowCount = rowNum;
-            }
-        }
-    }
+			// Ищем максимальный номер строки в текущей таблице
+			var maxRowCount = 0
+			for (var i = 0; i < rows.length; i++) {
+				// Находим ячейку с номером строки
+				var cell = rows[i].getElementsByTagName('td')[1]
+				if (cell) {
+					// Получаем значение номера строки (преобразуем его в число)
+					var rowNum = parseInt(cell.textContent.trim())
+					// Если это число и оно больше текущего максимального, обновляем максимум
+					if (!isNaN(rowNum) && rowNum > maxRowCount) {
+						maxRowCount = rowNum
+					}
+				}
+			}
 
-    // Создаем новую строку
-    var newForm = document.createElement('tr');
-    var rowCount = maxRowCount + 1; // Определяем новый номер строки
+			// Создаем новую строку
+			var newForm = document.createElement('tr')
+			var rowCount = maxRowCount + 1 // Определяем новый номер строки
 
-    // Заполняем HTML для новой строки
-    newForm.innerHTML = '<td class="m-0 p-0"><input type="checkbox" class="form-check-input"></td><td class="m-0 p-0">' + rowCount + '</td><td class="m-0 p-0">{{ form.cod }}</td><td class="m-0 p-0">{{ form.name }}</td><td class="m-0 p-0">{{ form.order_len }}</td><td class="m-0 p-0">{{ form.mass }}</td><td class="m-0 p-0">{{ form.diameter }}</td><td class="m-0 p-0">{{ form.con_num }}</td><td class="m-0 p-0">{{ form.max_len }}</td>';
+			// Заполняем HTML для новой строки
+			newForm.innerHTML =
+				'<td class="m-0 p-0"><input type="checkbox" class="form-check-input"></td><td class="m-0 p-0">' +
+				rowCount +
+				'</td><td class="m-0 p-0">{{ form.cod }}</td><td class="m-0 p-0">{{ form.name }}</td><td class="m-0 p-0">{{ form.order_len }}</td><td class="m-0 p-0">{{ form.mass }}</td><td class="m-0 p-0">{{ form.diameter }}</td><td class="m-0 p-0">{{ form.con_num }}</td><td class="m-0 p-0">{{ form.max_len }}</td>'
 
-    // Добавляем новую строку в таблицу
-    formContainer.appendChild(newForm);
-}
+			// Добавляем новую строку в таблицу
+			formContainer.appendChild(newForm)
+		}
 
-        function deleteRow() {
-            var formContainer = document.getElementById('form-container');
-            var rows = formContainer.getElementsByTagName('tr');
-            for (var i = rows.length - 1; i >= 0; i--) {
-            var checkboxes = rows[i].getElementsByTagName('input');
+		function deleteRow() {
+			var formContainer = document.getElementById('form-container')
+			var rows = formContainer.getElementsByTagName('tr')
+			for (var i = rows.length - 1; i >= 0; i--) {
+				var checkboxes = rows[i].getElementsByTagName('input')
 
-            // Проверяем чекбоксы в текущей строке
-            for (var j = 0; j < checkboxes.length; j++) {
-                if (checkboxes[j].type === 'checkbox' && checkboxes[j].checked) {
-                    // Удаляем строку, если хотя бы один чекбокс отмечен
-                    formContainer.removeChild(rows[i]);
-                    break; // Прерываем цикл, чтобы не проверять остальные чекбоксы в этой строке
-                    }
-                }
-            }
-        }
-    </script>
+				// Проверяем чекбоксы в текущей строке
+				for (var j = 0; j < checkboxes.length; j++) {
+					if (checkboxes[j].type === 'checkbox' && checkboxes[j].checked) {
+						// Удаляем строку, если хотя бы один чекбокс отмечен
+						formContainer.removeChild(rows[i])
+						break // Прерываем цикл, чтобы не проверять остальные чекбоксы в этой строке
+					}
+				}
+			}
+		}
+	</script>
 </div>
 {% endblock %}

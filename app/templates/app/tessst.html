@@ -1,35 +1,31 @@
-{% extends 'base.html' %}
-{% load dynamic_form_fields %}
-
-{{ product_form.as_form }}
-
-{% for field in product_form.dynamic_fields %}
-    <div class="dynamic-field">
-        {{ field.label }}: {{ field.as_widget }}
-        <button type="button" class="remove-dynamic-field">Удалить</button>
-    </div>
+{% extends 'base.html' %} {% load dynamic_form_fields %} {{ product_form.as_form
+}} {% for field in product_form.dynamic_fields %}
+<div class="dynamic-field">
+	{{ field.label }}: {{ field.as_widget }}
+	<button type="button" class="remove-dynamic-field">Удалить</button>
+</div>
 {% endfor %}
 
 <button type="button" class="add-dynamic-field">Добавить поле</button>
 
 # JavaScript для добавления и удаления полей
 <script>
-    $(document).ready(function() {
-        $(".add-dynamic-field").click(function() {
-            $.ajax({
-                url: "{% url 'dynamic_form_fields:add_dynamic_field' %}",
-                data: {
-                    form_class: "{{ product_form.__class__.__name__ }}",
-                },
-                success: function(data) {
-                    var fieldHTML = data.field_html;
-                    $(".dynamic-fields").append(fieldHTML);
-                },
-            });
-        });
+	$(document).ready(function () {
+		$('.add-dynamic-field').click(function () {
+			$.ajax({
+				url: "{% url 'dynamic_form_fields:add_dynamic_field' %}",
+				data: {
+					form_class: '{{ product_form.__class__.__name__ }}',
+				},
+				success: function (data) {
+					var fieldHTML = data.field_html
+					$('.dynamic-fields').append(fieldHTML)
+				},
+			})
+		})
 
-        $(".dynamic-fields").on("click", ".remove-dynamic-field", function() {
-            $(this).parent().remove();
-        });
-    });
+		$('.dynamic-fields').on('click', '.remove-dynamic-field', function () {
+			$(this).parent().remove()
+		})
+	})
 </script>

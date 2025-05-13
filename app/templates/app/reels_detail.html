@@ -1,43 +1,44 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-  <div class="card-body">
-    <h7 class="card-description">Baraban siyahısı:</h7>
-    <div class="table-responsive pt-3">
-      <table class="table table-bordered text-center">
-        <thead>
-          <tr>
-            <th class="bg-light">Ad</th>
-            <th class="bg-light">Hündürlük<br/>(abşıvakalı),<br/>mm</th>
-            <th class="bg-light">En,<br/>mm</th>
-            <th class="bg-light">Diameter,<br/>mm</th>
-            <th class="bg-light">Boğaz<br/>diametri,<br/>mm</th>
-            <th class="bg-light">Boğaz<br/>uzunluğu,<br/>mm</th>
-            <th class="bg-light">Növ,<br/>mm</th>
-            <th class="bg-light">Çəki,<br/>kq</th>
-            <th class="bg-light">Maksimal<br/>yükləmə,<br/>kq</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td class="m-2 p-2">{{ reels.name }}</td>
-            <td class="m-2 p-2">{{ reels.height }}</td>
-            <td class="m-2 p-2">{{ reels.width }}</td>
-            <td class="m-2 p-2">{{ reels.diameter }}</td>
-            <td class="m-2 p-2">{{ reels.diameter_neck }}</td>
-            <td class="m-2 p-2">{{ reels.length_neck }}</td>
-            <td class="m-2 p-2">{{ reels.reel_type }}</td>
-            <td class="m-2 p-2">{{ reels.mass }}</td>
-            <td class="m-2 p-2">{{ reels.max_load }}</td>
-          </tr>
-
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-end">
-        <div class="p-2 bd-highlight"><a class="btn btn-danger text-white fw-bold" href="{% url 'reels_del' pk=object.pk %}">-</a></div>
-      </div>
-    </div>
-  </div>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card-body">
+	<h7 class="card-description">Baraban siyahısı:</h7>
+	<div class="table-responsive pt-3">
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th class="bg-light">Ad</th>
+					<th class="bg-light">Hündürlük<br />(abşıvakalı),<br />mm</th>
+					<th class="bg-light">En,<br />mm</th>
+					<th class="bg-light">Diameter,<br />mm</th>
+					<th class="bg-light">Boğaz<br />diametri,<br />mm</th>
+					<th class="bg-light">Boğaz<br />uzunluğu,<br />mm</th>
+					<th class="bg-light">Növ,<br />mm</th>
+					<th class="bg-light">Çəki,<br />kq</th>
+					<th class="bg-light">Maksimal<br />yükləmə,<br />kq</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="m-2 p-2">{{ reels.name }}</td>
+					<td class="m-2 p-2">{{ reels.height }}</td>
+					<td class="m-2 p-2">{{ reels.width }}</td>
+					<td class="m-2 p-2">{{ reels.diameter }}</td>
+					<td class="m-2 p-2">{{ reels.diameter_neck }}</td>
+					<td class="m-2 p-2">{{ reels.length_neck }}</td>
+					<td class="m-2 p-2">{{ reels.reel_type }}</td>
+					<td class="m-2 p-2">{{ reels.mass }}</td>
+					<td class="m-2 p-2">{{ reels.max_load }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-end">
+			<div class="p-2 bd-highlight">
+				<a
+					class="btn btn-danger text-white fw-bold"
+					href="{% url 'reels_del' pk=object.pk %}"
+					>-</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
