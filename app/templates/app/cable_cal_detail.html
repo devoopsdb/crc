@@ -1,73 +1,115 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<div class="card-body">
-	<h7 class="card-description"
-		>Sifarişin nömrəsi: {{ cable_cal.order_num }} &nbsp&nbsp&nbsp Yaradılma
-		tarixi: {{ cable_cal.created_at|date:"d.m.Y" }}</h7
-	>
-	<div class="table-responsive pt-3">
-		<table class="table table-bordered text-center">
-			<thead>
-				<tr>
-					<th class="bg-light">Kabelin <br />kodu</th>
-					<th class="bg-light">Kabelin <br />adı</th>
-					<th class="bg-light">Sifariş <br />uzunluq, <br />m</th>
-					<th class="bg-light">Baraban <br />növü</th>
-					<th class="bg-light">
-						Bir <br />barabana <br />dolanan <br />miqdar, <br />m
-					</th>
-					<th class="bg-light">Baraban <br />sayı</th>
-					<th class="bg-light">Netto <br />1 baraban, <br />kq</th>
-					<th class="bg-light">Brutto <br />1 baraban, <br />kq</th>
-					<th class="bg-light">Netto <br />ümumi, <br />kq</th>
-					<th class="bg-light">Brutto <br />ümumi, <br />kq</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr id="table">
-					<td>{{ cable_cal.cod|linebreaks }}</td>
-					<td>{{ cable_cal.name|linebreaks }}</td>
-					<td>{{ cable_cal.order_len|linebreaks }}</td>
-					<td>{{ cable_cal.reel_name|linebreaks }}</td>
-					<td>{{ cable_cal.reel_len|linebreaks }}</td>
-					<td>{{ cable_cal.reel_num|linebreaks }}</td>
-					<td>{{ cable_cal.netto_1|linebreaks }}</td>
-					<td>{{ cable_cal.brutto_1|linebreaks }}</td>
-					<td>{{ cable_cal.netto_all|linebreaks }}</td>
-					<td>{{ cable_cal.brutto_all|linebreaks }}</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="d-flex justify-content-end">
-			<div class="p-2 bd-highlight">
-				<a
-					class="btn btn-danger text-white fw-bold"
-					href="{% url 'app:cable_del' pk=object.pk %}"
-					>-</a
-				>
-			</div>
-		</div>
-	</div>
-	<table class="table table-bordered text-center mt-5 w-50">
-		<thead>
-			<tr>
-				<th>Kabelin <br />kodu</th>
-				<th>Kabelin <br />adı</th>
-				<th>Kabelin <br />çəki, <br />kq/m</th>
-				<th>Kabelin <br />diametr, <br />mm</th>
-				<th>Kabelin <br />damar <br />sayı</th>
-				<th>Maksimal <br />istehsalat <br />uzunluğu, <br />m</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>{{ cable_cal.cod|linebreaks }}</td>
-				<td>{{ cable_cal.name|linebreaks }}</td>
-				<td>{{ cable_cal.mass|linebreaks }}</td>
-				<td>{{ cable_cal.diameter|linebreaks }}</td>
-				<td>{{ cable_cal.con_num|linebreaks }}</td>
-				<td>{{ cable_cal.max_len|linebreaks }}</td>
-			</tr>
-		</tbody>
-	</table>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block navbar_title %}{{ cable_cal.order_num }}{% endblock %}
+
+{% block content %}
+<div class="app-card mb-4">
+  <div class="app-card-header">
+    <div>
+      <h2>{{ cable_cal.order_num }}</h2>
+      <div class="text-muted small">{{ cable_cal.created_at|date:"DATE_FORMAT" }}</div>
+    </div>
+    <div class="app-page-actions">
+      <a href="{% url 'app:cable_list' %}" class="btn btn-ghost btn-sm"><i class="bi bi-arrow-left"></i> {% trans "Back" %}</a>
+      <a href="{% url 'app:cable_del' pk=cable_cal.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> {% trans "Delete" %}</a>
+    </div>
+  </div>
+  <div class="app-card-body">
+    <dl class="app-kv">
+      <dt>{% trans "Transport" %}</dt><dd>{{ cable_cal.transport|default:"–" }}</dd>
+      <dt>{% trans "Winding margin override" %}</dt><dd>{{ cable_cal.margin_override|default_if_none:"–" }}</dd>
+      <dt>{% trans "Packing factor override" %}</dt><dd>{{ cable_cal.packing_override|default_if_none:"–" }}</dd>
+      <dt>{% trans "Line items" %}</dt><dd>{{ cable_cal.line_items.count }}</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="app-card mb-4">
+  <div class="app-card-header"><h3><i class="bi bi-vinyl"></i> {% trans "Results per cable line" %}</h3></div>
+  <div class="app-card-body tight">
+    <div class="table-scroll">
+      <table class="app-table">
+        <thead>
+          <tr>
+            <th scope="col">{% trans "Cable" %}</th>
+            <th scope="col">{% trans "Reel" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Length / reel, m" %}</th>
+            <th scope="col" class="col-narrow text-center">{% trans "Reels" %}</th>
+            <th scope="col">{% trans "Reel fill" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Netto 1, kg" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Brutto 1, kg" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Netto total, kg" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Brutto total, kg" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Bending, mm" %}</th>
+            <th scope="col">{% trans "Status" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cable_cal.line_items.all %}
+            <tr>
+              <td><strong>{{ item.cod }}</strong><br><span class="text-muted small">{{ item.name }}</span></td>
+              <td>{{ item.reel|default:"–" }}</td>
+              <td class="tnum">{{ item.reel_len }}</td>
+              <td class="tnum text-center">{{ item.reel_num }}</td>
+              <td>
+                {% if item.max_len %}
+                  <div class="fill-bar"><span style="width: {% widthratio item.reel_len item.max_len 100 %}%"></span></div>
+                {% else %}–{% endif %}
+              </td>
+              <td class="tnum">{{ item.netto_1 }}</td>
+              <td class="tnum">{{ item.brutto_1 }}</td>
+              <td class="tnum">{{ item.netto_all }}</td>
+              <td class="tnum">{{ item.brutto_all }}</td>
+              <td class="tnum">{{ item.bending_radius }}</td>
+              <td>
+                {% if item.warning %}
+                  <span class="app-badge app-badge-warning"><i class="bi bi-exclamation-triangle-fill"></i> {{ item.warning }}</span>
+                {% else %}
+                  <span class="app-badge app-badge-ok"><i class="bi bi-check-lg"></i> {% trans "OK" %}</span>
+                {% endif %}
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="11" class="app-empty">{% trans "No cable lines." %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="app-card">
+  <div class="app-card-header"><h3>{% trans "Cable inputs" %}</h3></div>
+  <div class="app-card-body tight">
+    <div class="table-scroll">
+      <table class="app-table">
+        <thead>
+          <tr>
+            <th scope="col">{% trans "Cable code" %}</th>
+            <th scope="col">{% trans "Cable name" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Mass, kg/m" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Diameter, mm" %}</th>
+            <th scope="col" class="col-narrow text-center">{% trans "Conductors" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Order length, m" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Max length, m" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cable_cal.line_items.all %}
+            <tr>
+              <td>{{ item.cod }}</td>
+              <td>{{ item.name }}</td>
+              <td class="tnum">{{ item.mass }}</td>
+              <td class="tnum">{{ item.diameter }}</td>
+              <td class="tnum text-center">{{ item.con_num }}</td>
+              <td class="tnum">{{ item.order_len }}</td>
+              <td class="tnum">{{ item.max_len }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 {% endblock %}

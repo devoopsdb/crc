@@ -1,0 +1,13 @@
+{% load i18n %}
+<header class="app-navbar">
+  <button class="btn btn-ghost btn-icon app-sidebar-toggle" id="app-sidebar-toggle" type="button" aria-label="{% trans "Toggle navigation" %}" aria-expanded="false" aria-controls="app-sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+  <h1 class="app-page-title">{% block navbar_title %}{% trans "Cable Reels Calculator" %}{% endblock %}</h1>
+  <div class="app-nav-controls">
+    {% include "partials/_lang_switcher.html" %}
+    <button class="btn btn-ghost btn-icon" id="theme-toggle" type="button" aria-pressed="false" aria-label="{% trans "Toggle light/dark theme" %}" title="{% trans "Toggle light/dark theme" %}">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+  </div>
+</header>

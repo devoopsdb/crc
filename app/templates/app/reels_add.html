@@ -1,45 +1,28 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block navbar_title %}{% trans "Add reel" %}{% endblock %}
 
 {% block content %}
-<div class="card-body">
-    <h7 class="card-description">Baraban siyahısı:</h7>
-    <div class="table-responsive pt-3">
-        <table class="table table-bordered text-center">
-            <thead>
-            <tr>
-                <th class="bg-light">Ad</th>
-                <th class="bg-light">Hündürlük<br/>(abşıvakalı),<br/>mm</th>
-                <th class="bg-light">En,<br/>mm</th>
-                <th class="bg-light">Diameter,<br/>mm</th>
-                <th class="bg-light">Boğaz<br/>diametri,<br/>mm</th>
-                <th class="bg-light">Boğaz<br/>uzunluğu,<br/>mm</th>
-                <th class="bg-light">Növ,<br/>mm</th>
-                <th class="bg-light">Çəki,<br/>kq</th>
-                <th class="bg-light">Maksimal<br/>yükləmə,<br/>kq</th>
-            </tr>
-            </thead>
-            <tbody>
-            <form method="post">
-                {% csrf_token %}
-                <tr>
-                    <th class="m-0 p-0">{{ form.name }}</th>
-                    <th class="m-0 p-0">{{ form.height }}</th>
-                    <th class="m-0 p-0">{{ form.width }}</th>
-                    <th class="m-0 p-0">{{ form.diameter }}</th>
-                    <th class="m-0 p-0">{{ form.diameter_neck }}</th>
-                    <th class="m-0 p-0">{{ form.length_neck }}</th>
-                    <th class="m-0 p-0">{{ form.reel_type }}</th>
-                    <th class="m-0 p-0">{{ form.mass }}</th>
-                    <th class="m-0 p-0">{{ form.max_load }}</th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex justify-content-end p-2">
-        <button type="submit" class="btn btn-primary text-white">Əlavə etmək</button>
-    </div>
+<div class="app-card">
+  <div class="app-card-header"><h2><i class="bi bi-vinyl"></i> {% trans "Add reel" %}</h2></div>
+  <div class="app-card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="app-form-header">
+        {% for field in form %}
+          <div>
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<div class="app-field-error">{{ field.errors|join:", " }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="app-page-actions mt-3">
+        <a href="{% url 'app:reels_list' %}" class="btn btn-ghost">{% trans "Cancel" %}</a>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> {% trans "Save" %}</button>
+      </div>
     </form>
-
+  </div>
 </div>
 {% endblock %}

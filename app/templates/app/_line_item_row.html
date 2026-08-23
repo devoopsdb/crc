@@ -1,0 +1,14 @@
+{% load i18n %}
+<td>{{ form.cod }}{% if form.cod.errors %}<div class="app-field-error">{{ form.cod.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.name }}{% if form.name.errors %}<div class="app-field-error">{{ form.name.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.order_len }}{% if form.order_len.errors %}<div class="app-field-error">{{ form.order_len.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.mass }}{% if form.mass.errors %}<div class="app-field-error">{{ form.mass.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.diameter }}{% if form.diameter.errors %}<div class="app-field-error">{{ form.diameter.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.con_num }}{% if form.con_num.errors %}<div class="app-field-error">{{ form.con_num.errors|join:", " }}</div>{% endif %}</td>
+<td>{{ form.max_len }}{% if form.max_len.errors %}<div class="app-field-error">{{ form.max_len.errors|join:", " }}</div>{% endif %}</td>
+<td class="text-center col-narrow">
+  <span class="d-none">{{ form.DELETE }}</span>
+  <button type="button" class="btn btn-ghost btn-icon btn-del-row" data-formset-delete aria-label="{% trans "Remove line" %}" title="{% trans "Remove line" %}">
+    <i class="bi bi-dash-lg"></i>
+  </button>
+</td>

@@ -1,0 +1,32 @@
+{% load i18n %}
+<aside class="app-sidebar" id="app-sidebar" aria-label="{% trans "Navigation" %}">
+  <a class="app-brand" href="{% url 'app:cable_cal' %}">
+    <span class="app-brand-mark"><i class="bi bi-vinyl-fill"></i></span>
+    <span>CRC</span>
+  </a>
+  <ul class="app-nav">
+    <li class="app-nav-section">{% trans "Calculation" %}</li>
+    <li class="app-nav-item">
+      <a href="{% url 'app:cable_cal' %}" {% if request.resolver_match.url_name == 'cable_cal' %}class="active" aria-current="page"{% endif %}>
+        <i class="bi bi-calculator"></i><span>{% trans "New calculation" %}</span>
+      </a>
+    </li>
+    <li class="app-nav-item">
+      <a href="{% url 'app:cable_list' %}" {% if request.resolver_match.url_name == 'cable_list' or request.resolver_match.url_name == 'cable_detail' %}class="active" aria-current="page"{% endif %}>
+        <i class="bi bi-clock-history"></i><span>{% trans "Calculation history" %}</span>
+      </a>
+    </li>
+    <li class="app-nav-section">{% trans "Reference data" %}</li>
+    <li class="app-nav-item">
+      <a href="{% url 'app:reels_list' %}" {% if request.resolver_match.url_name == 'reels_list' or request.resolver_match.url_name == 'reels_list_detail' %}class="active" aria-current="page"{% endif %}>
+        <i class="bi bi-vinyl"></i><span>{% trans "Reel list" %}</span>
+      </a>
+    </li>
+    <li class="app-nav-item">
+      <a href="{% url 'app:transport_list' %}" {% if request.resolver_match.url_name == 'transport_list' or request.resolver_match.url_name == 'transport_list_detail' %}class="active" aria-current="page"{% endif %}>
+        <i class="bi bi-truck"></i><span>{% trans "Transport list" %}</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+<div class="app-sidebar-backdrop" id="app-sidebar-backdrop"></div>
