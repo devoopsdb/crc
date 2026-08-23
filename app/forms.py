@@ -24,7 +24,12 @@ class CableCalForm(forms.ModelForm):
 
 
 class CableLineItemForm(forms.ModelForm):
-    """One cable line in an order (entered via a formset)."""
+    """One cable line in an order (entered via a formset).
+
+    Fields are not required at the form level so that empty extra rows in the
+    formset pass validation; the view skips rows without a diameter and
+    compute_line() raises a user-facing error for rows missing other data.
+    """
 
     class Meta:
         model = CableLineItem
@@ -38,6 +43,11 @@ class CableLineItemForm(forms.ModelForm):
             "mass": forms.NumberInput(attrs={"class": "form-control", "step": "0.001"}),
             "diameter": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.required = False
 
 
 CableLineItemFormSet = formset_factory(CableLineItemForm, extra=1, can_delete=True)
