@@ -1,0 +1,8 @@
+{
+  "include": ["app", "crc"],
+  "exclude": ["**/__pycache__", "**/migrations", ".venv", "static"],
+  "pythonVersion": "3.13",
+  "reportArgumentType": "warning",
+  "reportAttributeAccessIssue": "warning",
+  "reportIncompatibleMethodOverride": "warning"
+}
