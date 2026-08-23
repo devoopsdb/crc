@@ -1,54 +1,54 @@
-{% extends "base.html" %}
-{% load i18n %}
-
-{% block navbar_title %}{% trans "Reel list" %}{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load i18n %} {% block navbar_title %}{% trans "Reel
+list" %}{% endblock %} {% block content %}
 <div class="app-card">
   <div class="app-card-header">
     <h2><i class="bi bi-vinyl"></i> {% trans "Reel list" %}</h2>
-    <a href="{% url 'app:reels_add' %}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg"></i> {% trans "Add reel" %}</a>
+    <a href="{% url 'app:reels_add' %}" class="btn btn-primary btn-sm"
+      ><i class="bi bi-plus-lg"></i> {% trans "Add reel" %}</a
+    >
   </div>
   <div class="app-card-body tight">
     {% if reels %}
-      <div class="table-scroll">
-        <table class="app-table">
-          <thead>
-            <tr>
-              <th scope="col">{% trans "Name" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Flange h, mm" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Width, mm" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Ø, mm" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Core Ø, mm" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Barrel, mm" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Type" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Mass, kg" %}</th>
-              <th scope="col" class="col-narrow">{% trans "Max load, kg" %}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in reels %}
-              <tr>
-                <td><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></td>
-                <td class="tnum">{{ item.height }}</td>
-                <td class="tnum">{{ item.width }}</td>
-                <td class="tnum">{{ item.diameter }}</td>
-                <td class="tnum">{{ item.diameter_neck }}</td>
-                <td class="tnum">{{ item.length_neck }}</td>
-                <td>{{ item.reel_type|default:"–" }}</td>
-                <td class="tnum">{{ item.mass }}</td>
-                <td class="tnum">{{ item.max_load }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+    <div class="table-scroll">
+      <table class="app-table">
+        <thead>
+          <tr>
+            <th scope="col">{% trans "Name" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Flange h, mm" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Width, mm" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Ø, mm" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Core Ø, mm" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Barrel, mm" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Type" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Mass, kg" %}</th>
+            <th scope="col" class="col-narrow">{% trans "Max load, kg" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in reels %}
+          <tr>
+            <td><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></td>
+            <td class="tnum">{{ item.height }}</td>
+            <td class="tnum">{{ item.width }}</td>
+            <td class="tnum">{{ item.diameter }}</td>
+            <td class="tnum">{{ item.diameter_neck }}</td>
+            <td class="tnum">{{ item.length_neck }}</td>
+            <td>{{ item.reel_type|default:"–" }}</td>
+            <td class="tnum">{{ item.mass }}</td>
+            <td class="tnum">{{ item.max_load }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
     {% else %}
-      <div class="app-empty">
-        <i class="bi bi-vinyl"></i>
-        <p>{% trans "No reels yet." %}</p>
-        <a href="{% url 'app:reels_add' %}" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg"></i> {% trans "Add reel" %}</a>
-      </div>
+    <div class="app-empty">
+      <i class="bi bi-vinyl"></i>
+      <p>{% trans "No reels yet." %}</p>
+      <a href="{% url 'app:reels_add' %}" class="btn btn-primary btn-sm"
+        ><i class="bi bi-plus-lg"></i> {% trans "Add reel" %}</a
+      >
+    </div>
     {% endif %}
   </div>
 </div>
