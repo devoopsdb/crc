@@ -21,5 +21,4 @@ urlpatterns = [
         "transport_list/<int:pk>/del/", TransportListDel.as_view(), name="transport_del"
     ),
     path("cable_list/", CableCalList.as_view(), name="cable_list"),
-    path("x/", x),
 ]
