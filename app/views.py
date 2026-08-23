@@ -37,7 +37,7 @@ class CableCalView(FormView):
 
     def get_success_url(self):
         pk = self.object.pk
-        return reverse("cable_detail", kwargs={"pk": pk})
+        return reverse("app:cable_detail", kwargs={"pk": pk})
 
     def form_valid(self, form):
         transport = form.cleaned_data["transport"]
@@ -109,7 +109,7 @@ class CableCalDetail(DetailView):
 class CableCalDel(DeleteView):
     model = CableCal
     template_name = "app/cable_cal_del.html"
-    success_url = reverse_lazy("cable_list")
+    success_url = reverse_lazy("app:cable_list")
 
 
 class ReelsListView(ListView):
@@ -127,13 +127,13 @@ class ReelsListDetail(DetailView):
 class ReelsListCreate(CreateView):
     form_class = ReelsListForm
     template_name = "app/reels_add.html"
-    success_url = reverse_lazy("reels_list")
+    success_url = reverse_lazy("app:reels_list")
 
 
 class ReelsListDel(DeleteView):
     model = ReelsList
     template_name = "app/reels_del.html"
-    success_url = reverse_lazy("reels_list")
+    success_url = reverse_lazy("app:reels_list")
 
 
 class TransportListView(ListView):
@@ -151,10 +151,10 @@ class TransportListDetail(DetailView):
 class TransportListCreate(CreateView):
     form_class = TransportListForm
     template_name = "app/transport_add.html"
-    success_url = reverse_lazy("transport_list")
+    success_url = reverse_lazy("app:transport_list")
 
 
 class TransportListDel(DeleteView):
     model = TransportList
     template_name = "app/transport_del.html"
-    success_url = reverse_lazy("transport_list")
+    success_url = reverse_lazy("app:transport_list")

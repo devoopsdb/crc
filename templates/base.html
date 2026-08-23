@@ -63,10 +63,10 @@
 				<div
 					class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
 				>
-					<a class="navbar-brand brand-logo me-5" href="{% url 'cable_cal' %}"
+					<a class="navbar-brand brand-logo me-5" href="{% url 'app:cable_cal' %}"
 						><img src="{% static 'img/crc-logo.svg' %}" class="me-2" alt="logo"
 					/></a>
-					<a class="navbar-brand brand-logo-mini" href="{% url 'cable_cal' %}"
+					<a class="navbar-brand brand-logo-mini" href="{% url 'app:cable_cal' %}"
 						><img src="{% static 'img/crc-logo-mini.svg' %}" alt="logo"
 					/></a>
 				</div>
@@ -124,26 +124,26 @@
 				<nav class="sidebar sidebar-offcanvas" id="sidebar">
 					<ul class="nav">
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'cable_cal' %}">
+							<a class="nav-link" href="{% url 'app:cable_cal' %}">
 								<i class="ti-write menu-icon"></i>
 								<span class="menu-title">Hesablama</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'cable_list' %}">
+							<a class="nav-link" href="{% url 'app:cable_list' %}">
 								<i class="ti-view-list-alt menu-icon"></i>
 								<span class="menu-title">Hesablama keçmişi</span>
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'reels_list' %}">
+							<a class="nav-link" href="{% url 'app:reels_list' %}">
 								<i class="ti-view-list-alt menu-icon"></i>
 								<span class="menu-title">Baraban siyahısı</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'transport_list' %}">
+							<a class="nav-link" href="{% url 'app:transport_list' %}">
 								<i class="ti-view-list-alt menu-icon"></i>
 								<span class="menu-title">Nəqliyat siyahısı</span>
 							</a>

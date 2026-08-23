@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="card-body">
 	<form
-		action="{% url 'cable_cal' %}"
+		action="{% url 'app:cable_cal' %}"
 		method="post"
 		enctype="multipart/form-data"
 	>

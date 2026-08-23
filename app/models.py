@@ -33,10 +33,10 @@ class CableCal(models.Model):
     brutto_all = models.TextField(verbose_name="Brutto ümumi", blank=True)
 
     def get_absolute_url(self):
-        return reverse("cable_detail", kwargs={"pk": self.pk})
+        return reverse("app:cable_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
-        return self.order_num
+        return str(self.order_num)
 
     class Meta:
         verbose_name = "Order"
@@ -68,11 +68,10 @@ class ReelsList(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
 
     def get_absolute_url(self):
-        return reverse("reels_list_detail", args=[str(self.pk)])
-        # return reverse('reels_list_detail', kwargs={"pk": self.pk})
+        return reverse("app:reels_list_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = "Reel"
@@ -88,10 +87,10 @@ class ReelType(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
 
     def get_absolute_url(self):
-        return reverse("reels_list", kwargs={"pk": self.pk})
+        return reverse("app:reels_list")
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = "Reel Type"
@@ -111,10 +110,10 @@ class TransportList(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
 
     def get_absolute_url(self):
-        return reverse("transport_list_detail", kwargs={"pk": self.pk})
+        return reverse("app:transport_list_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     class Meta:
         verbose_name = "Transport"
