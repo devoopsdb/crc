@@ -19,11 +19,11 @@ env/
 
 # Django
 db.sqlite3
-*.pot
-*.pyc
 *.mo
-*.log
 *.pid
+# Migrations are committed (do NOT ignore them)
+# Collectstatic output (STATIC_ROOT) is generated, not committed:
+/static/
 
 # Virtualenv
 .venv/
@@ -35,9 +35,3 @@ venv/
 
 # PyCharm
 .idea/
-
-# Migrations
-**/migrations/*.py
-!**/migrations/__init__.py
-
-#
