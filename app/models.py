@@ -40,33 +40,35 @@ class CalculationSettings(models.Model):
 
 class CableCal(models.Model):
     order_num = models.CharField(
-        max_length=50, unique=True, db_index=True, verbose_name="Sifarişin nömrəsi"
+        max_length=50, unique=True, db_index=True, verbose_name=_("Order number")
     )
-    cod = models.TextField(verbose_name="Kabelin kodu")
-    name = models.TextField(db_index=True, verbose_name="Kabelin adı")
-    mass = models.TextField(verbose_name="Kabelin çəkisi, kq/m")
-    diameter = models.TextField(verbose_name="Kabelin xarici diametri, mm")
-    con_num = models.TextField(verbose_name="Kabelin cəriyan keçirən damarların sayı")
-    order_len = models.TextField(verbose_name="sifarişin uzunluğu, m")
-    max_len = models.TextField(verbose_name="maksimal istehsalat uzunluğu, m")
+    # Legacy newline-joined text columns (removed in Phase 4 once templates
+    # render line_items). Kept nullable-blank so the formset view can save.
+    cod = models.TextField(verbose_name=_("Cable code"), blank=True)
+    name = models.TextField(db_index=True, verbose_name=_("Cable name"), blank=True)
+    mass = models.TextField(verbose_name=_("Cable mass (kg/m)"), blank=True)
+    diameter = models.TextField(verbose_name=_("Cable outer diameter (mm)"), blank=True)
+    con_num = models.TextField(verbose_name=_("Conductor count"), blank=True)
+    order_len = models.TextField(verbose_name=_("Order length (m)"), blank=True)
+    max_len = models.TextField(verbose_name=_("Max production length (m)"), blank=True)
     transport = models.ForeignKey(
-        "TransportList", null=True, blank=False, on_delete=models.PROTECT
+        "TransportList",
+        null=True,
+        blank=False,
+        on_delete=models.PROTECT,
+        verbose_name=_("Transport"),
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Yaradılma tarixi"
-    )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
-    reel_name = models.TextField(verbose_name="Baraban adı", blank=True)
-    reel_type = models.TextField(verbose_name="Baraban növü", blank=True)
-    reel_num = models.TextField(verbose_name="Baraban sayı", blank=True)
-    reel_len = models.TextField(
-        verbose_name="Bir barabana dolanan miqdar, m", blank=True
-    )
-    bending_radius = models.TextField(verbose_name="Əyilmə radiusu", blank=True)
-    netto_1 = models.TextField(verbose_name="Netto 1 baraban", blank=True)
-    brutto_1 = models.TextField(verbose_name="Brutto 1 baraban", blank=True)
-    netto_all = models.TextField(verbose_name="Netto ümumi", blank=True)
-    brutto_all = models.TextField(verbose_name="Brutto ümumi", blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
+    reel_name = models.TextField(verbose_name=_("Reel name"), blank=True)
+    reel_type = models.TextField(verbose_name=_("Reel type"), blank=True)
+    reel_num = models.TextField(verbose_name=_("Reel count"), blank=True)
+    reel_len = models.TextField(verbose_name=_("Length per reel (m)"), blank=True)
+    bending_radius = models.TextField(verbose_name=_("Bending radius"), blank=True)
+    netto_1 = models.TextField(verbose_name=_("Netto 1 reel"), blank=True)
+    brutto_1 = models.TextField(verbose_name=_("Brutto 1 reel"), blank=True)
+    netto_all = models.TextField(verbose_name=_("Netto total"), blank=True)
+    brutto_all = models.TextField(verbose_name=_("Brutto total"), blank=True)
     # Per-calculation overrides of the global CalculationSettings defaults.
     margin_override = models.FloatField(
         null=True, blank=True, verbose_name=_("Winding margin override (mm)")
@@ -82,33 +84,29 @@ class CableCal(models.Model):
         return str(self.order_num)
 
     class Meta:
-        verbose_name = "Order"
-        verbose_name_plural = "Orders"
+        verbose_name = _("Order")
+        verbose_name_plural = _("Orders")
         ordering = ["-created_at"]
 
 
 class ReelsList(models.Model):
-    name = models.CharField(max_length=50, verbose_name="Barabanın adı")
-    height = models.IntegerField(verbose_name="Barabanın hündürlükü abşıvkalı, mm")
-    width = models.IntegerField(verbose_name="Barabanın eni, mm")
-    diameter = models.IntegerField(verbose_name="Barabanın diametri, mm")
-    diameter_neck = models.IntegerField(
-        verbose_name="Barabanın boğazının diametiri, mm"
-    )
-    length_neck = models.IntegerField(verbose_name="Barabanın bogazının uzunluğu, mm")
-    max_load = models.IntegerField(verbose_name="Maksimal yükləmə, kq")
-    mass = models.IntegerField(verbose_name="Barabanın çəkisi, kq")
+    name = models.CharField(max_length=50, verbose_name=_("Reel name"))
+    height = models.IntegerField(verbose_name=_("Flange height (mm)"))
+    width = models.IntegerField(verbose_name=_("Width (mm)"))
+    diameter = models.IntegerField(verbose_name=_("Diameter (mm)"))
+    diameter_neck = models.IntegerField(verbose_name=_("Core diameter (mm)"))
+    length_neck = models.IntegerField(verbose_name=_("Barrel width (mm)"))
+    max_load = models.IntegerField(verbose_name=_("Max load (kg)"))
+    mass = models.IntegerField(verbose_name=_("Reel mass (kg)"))
     reel_type = models.ForeignKey(
         "ReelType",
-        verbose_name="Barabanın növü",
+        verbose_name=_("Reel type"),
         null=True,
         blank=True,
         on_delete=models.PROTECT,
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Yaradılma tarixi"
-    )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     def get_absolute_url(self):
         return reverse("app:reels_list_detail", kwargs={"pk": self.pk})
@@ -117,8 +115,8 @@ class ReelsList(models.Model):
         return str(self.name)
 
     class Meta:
-        verbose_name = "Reel"
-        verbose_name_plural = "Reels"
+        verbose_name = _("Reel")
+        verbose_name_plural = _("Reels")
         ordering = ["name"]
         constraints = [
             models.CheckConstraint(
@@ -137,11 +135,9 @@ class ReelsList(models.Model):
 
 
 class ReelType(models.Model):
-    name = models.CharField(max_length=50, verbose_name="Barabanın növü")
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Yaradılma tarixi"
-    )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
+    name = models.CharField(max_length=50, verbose_name=_("Reel type name"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     def get_absolute_url(self):
         return reverse("app:reels_list")
@@ -150,21 +146,19 @@ class ReelType(models.Model):
         return str(self.name)
 
     class Meta:
-        verbose_name = "Reel Type"
-        verbose_name_plural = "Reel Types"
+        verbose_name = _("Reel type")
+        verbose_name_plural = _("Reel types")
         ordering = ["name"]
 
 
 class TransportList(models.Model):
-    name = models.CharField(max_length=50, verbose_name="Nəqliyətin adı")
-    length = models.IntegerField(verbose_name="Uzunluq, mm")
-    width = models.IntegerField(verbose_name="En, mm")
-    height = models.IntegerField(verbose_name="Hündürlük, mm")
-    max_load = models.IntegerField(verbose_name="maksimal yükləmə, kq")
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Yaradılma tarixi"
-    )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Yeniləmə tarixi")
+    name = models.CharField(max_length=50, verbose_name=_("Transport name"))
+    length = models.IntegerField(verbose_name=_("Length (mm)"))
+    width = models.IntegerField(verbose_name=_("Width (mm)"))
+    height = models.IntegerField(verbose_name=_("Height (mm)"))
+    max_load = models.IntegerField(verbose_name=_("Max load (kg)"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated at"))
 
     def get_absolute_url(self):
         return reverse("app:transport_list_detail", kwargs={"pk": self.pk})
@@ -173,8 +167,8 @@ class TransportList(models.Model):
         return str(self.name)
 
     class Meta:
-        verbose_name = "Transport"
-        verbose_name_plural = "Transports"
+        verbose_name = _("Transport")
+        verbose_name_plural = _("Transports")
         ordering = ["created_at"]
 
 
