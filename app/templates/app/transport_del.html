@@ -1,26 +1,18 @@
-{% extends "base.html" %} {% load i18n %} {% block navbar_title %}{% trans
-"Delete transport" %}{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block navbar_title %}{% trans "Delete transport" %}{% endblock %}
+
+{% block content %}
 <div class="app-card">
-  <div class="app-card-header">
-    <h2>
-      <i class="bi bi-exclamation-triangle text-warning"></i> {% trans "Delete
-      transport" %}
-    </h2>
-  </div>
+  <div class="app-card-header"><h2><i class="bi bi-exclamation-triangle text-warning"></i> {% trans "Delete transport" %}</h2></div>
   <div class="app-card-body">
-    <p>
-      {% blocktrans with name=object.name %}Delete transport
-      <strong>{{ name }}</strong>? This cannot be undone.{% endblocktrans %}
-    </p>
+    <p>{% blocktrans with name=object.name %}Delete transport <strong>{{ name }}</strong>? This cannot be undone.{% endblocktrans %}</p>
     <form method="post">
       {% csrf_token %}
       <div class="app-page-actions">
-        <a href="{{ object.get_absolute_url }}" class="btn btn-ghost"
-          >{% trans "Cancel" %}</a
-        >
-        <button type="submit" class="btn btn-danger">
-          <i class="bi bi-trash"></i> {% trans "Delete" %}
-        </button>
+        <a href="{{ object.get_absolute_url }}" class="btn btn-ghost">{% trans "Cancel" %}</a>
+        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> {% trans "Delete" %}</button>
       </div>
     </form>
   </div>
