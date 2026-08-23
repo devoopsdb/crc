@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+msgid "Cable Reels Calculator"
+msgstr "Калькулятор кабельных барабанов"
+
+msgid "Navigation"
+msgstr "Навигация"
+
+msgid "Calculation"
+msgstr "Расчёт"
+
+msgid "New calculation"
+msgstr "Новый расчёт"
+
+msgid "Calculation history"
+msgstr "История расчётов"
+
+msgid "Reference data"
+msgstr "Справочные данные"
+
+msgid "Reel list"
+msgstr "Список барабанов"
+
+msgid "Transport list"
+msgstr "Список транспорта"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Toggle navigation"
+msgstr "Переключить навигацию"
+
+msgid "Toggle light/dark theme"
+msgstr "Переключить светлую/тёмную тему"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Calculate"
+msgstr "Рассчитать"
+
+msgid "Add line"
+msgstr "Добавить строку"
+
+msgid "Add reel"
+msgstr "Добавить барабан"
+
+msgid "Add transport"
+msgstr "Добавить транспорт"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Remove line"
+msgstr "Удалить строку"
+
+msgid "Order number"
+msgstr "Номер заказа"
+
+msgid "Transport"
+msgstr "Транспорт"
+
+msgid "Winding margin override"
+msgstr "Переопределение зазора намотки"
+
+msgid "Packing factor override"
+msgstr "Переопределение коэф. заполнения"
+
+msgid "Cable lines"
+msgstr "Строки кабеля"
+
+msgid "Cable code"
+msgstr "Код кабеля"
+
+msgid "Cable name"
+msgstr "Название кабеля"
+
+msgid "Order length, m"
+msgstr "Длина заказа, м"
+
+msgid "Mass, kg/m"
+msgstr "Масса, кг/м"
+
+msgid "Diameter, mm"
+msgstr "Диаметр, мм"
+
+msgid "Conductors"
+msgstr "Жилы"
+
+msgid "Max length, m"
+msgstr "Макс. длина, м"
+
+msgid "Results per cable line"
+msgstr "Результаты по строкам кабеля"
+
+msgid "Cable"
+msgstr "Кабель"
+
+msgid "Reel"
+msgstr "Барабан"
+
+msgid "Length / reel, m"
+msgstr "Длина/барабан, м"
+
+msgid "Reels"
+msgstr "Барабаны"
+
+msgid "Reel fill"
+msgstr "Заполнение барабана"
+
+msgid "Netto 1, kg"
+msgstr "Нетто 1, кг"
+
+msgid "Brutto 1, kg"
+msgstr "Брутто 1, кг"
+
+msgid "Netto total, kg"
+msgstr "Нетто всего, кг"
+
+msgid "Brutto total, kg"
+msgstr "Брутто всего, кг"
+
+msgid "Bending, mm"
+msgstr "Изгиб, мм"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "No cable lines."
+msgstr "Нет строк кабеля."
+
+msgid "Cable inputs"
+msgstr "Ввод кабеля"
+
+msgid "Line items"
+msgstr "Строки"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Lines"
+msgstr "Строки"
+
+msgid "No calculations yet."
+msgstr "Расчётов пока нет."
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Flange h, mm"
+msgstr "Высота щеки, мм"
+
+msgid "Flange height, mm"
+msgstr "Высота щеки, мм"
+
+msgid "Width, mm"
+msgstr "Ширина, мм"
+
+msgid "Ø, mm"
+msgstr "Ø, мм"
+
+msgid "Core Ø, mm"
+msgstr "Сердеч. Ø, мм"
+
+msgid "Barrel, mm"
+msgstr "Барабан, мм"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Mass, kg"
+msgstr "Масса, кг"
+
+msgid "Max load, kg"
+msgstr "Макс. нагрузка, кг"
+
+msgid "No reels yet."
+msgstr "Барабанов пока нет."
+
+msgid "Core diameter, mm"
+msgstr "Диаметр сердечника, мм"
+
+msgid "Barrel width, mm"
+msgstr "Ширина барабана, мм"
+
+msgid "Reel type"
+msgstr "Тип барабана"
+
+msgid "Reel mass, kg"
+msgstr "Масса барабана, кг"
+
+msgid "Delete reel"
+msgstr "Удалить барабан"
+
+msgid "Height, mm"
+msgstr "Высота, мм"
+
+msgid "Length, mm"
+msgstr "Длина, мм"
+
+msgid "Transport name"
+msgstr "Название транспорта"
+
+msgid "No transport yet."
+msgstr "Транспорта пока нет."
+
+msgid "Delete transport"
+msgstr "Удалить транспорт"
+
+msgid "Delete calculation <strong>%(order)s</strong>? This cannot be undone."
+msgstr "Удалить расчёт <strong>%(order)s</strong>? Это действие необратимо."
+
+msgid "Delete reel <strong>%(name)s</strong>? This cannot be undone."
+msgstr "Удалить барабан <strong>%(name)s</strong>? Это действие необратимо."
+
+msgid "Delete transport <strong>%(name)s</strong>? This cannot be undone."
+msgstr "Удалить транспорт <strong>%(name)s</strong>? Это действие необратимо."
+
+msgid "Add at least one cable line."
+msgstr "Добавьте хотя бы одну строку кабеля."
+
+msgid "Row %(n)s: %(err)s"
+msgstr "Строка %(n)s: %(err)s"
+
+msgid "Order"
+msgstr "Заказ"
+
+msgid "Orders"
+msgstr "Заказы"
+
+msgid "Reel name"
+msgstr "Название барабана"
+
+msgid "Reel count"
+msgstr "Кол-во барабанов"
+
+msgid "Reel type name"
+msgstr "Название типа барабана"
+
+msgid "Reel types"
+msgstr "Типы барабанов"
+
+msgid "Transports"
+msgstr "Транспорт"
+
+msgid "Winding margin (mm)"
+msgstr "Зазор намотки (мм)"
+
+msgid "Winding margin override (mm)"
+msgstr "Переопр. зазора намотки (мм)"
+
+msgid "Packing factor"
+msgstr "Коэф. заполнения"
+
+msgid "Bending radius multiplier (x cable diameter)"
+msgstr "Множитель радиуса изгиба (× диаметр кабеля)"
+
+msgid "Use flange height to bound winding"
+msgstr "Ограничивать намотку высотой щеки"
+
+msgid "Unwound margin per flange side."
+msgstr "Несмотанный зазор с каждой стороны щеки."
+
+msgid "Calculation settings"
+msgstr "Параметры расчёта"
+
+msgid "Cable line item"
+msgstr "Строка кабеля"
+
+msgid "Cable line items"
+msgstr "Строки кабеля"
+
+msgid "Position"
+msgstr "Позиция"
+
+msgid "Conductor count"
+msgstr "Кол-во жил"
+
+msgid "Cable mass (kg/m)"
+msgstr "Масса кабеля (кг/м)"
+
+msgid "Cable outer diameter (mm)"
+msgstr "Наружный диаметр кабеля (мм)"
+
+msgid "Max production length (m)"
+msgstr "Макс. длина производства (м)"
+
+msgid "Chosen reel"
+msgstr "Выбранный барабан"
+
+msgid "Length per reel (m)"
+msgstr "Длина на барабан (м)"
+
+msgid "Netto 1 reel"
+msgstr "Нетто 1 барабан"
+
+msgid "Brutto 1 reel"
+msgstr "Брутто 1 барабан"
+
+msgid "Netto total"
+msgstr "Нетто всего"
+
+msgid "Brutto total"
+msgstr "Брутто всего"
+
+msgid "Netto 1 reel (kg)"
+msgstr "Нетто 1 барабан (кг)"
+
+msgid "Brutto 1 reel (kg)"
+msgstr "Брутто 1 барабан (кг)"
+
+msgid "Netto total (kg)"
+msgstr "Нетто всего (кг)"
+
+msgid "Brutto total (kg)"
+msgstr "Брутто всего (кг)"
+
+msgid "Bending radius"
+msgstr "Радиус изгиба"
+
+msgid "Bending radius (mm)"
+msgstr "Радиус изгиба (мм)"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Diameter (mm)"
+msgstr "Диаметр (мм)"
+
+msgid "Width (mm)"
+msgstr "Ширина (мм)"
+
+msgid "Height (mm)"
+msgstr "Высота (мм)"
+
+msgid "Length (mm)"
+msgstr "Длина (мм)"
+
+msgid "Max load (kg)"
+msgstr "Макс. нагрузка (кг)"
+
+msgid "Barrel width (mm)"
+msgstr "Ширина барабана (мм)"
+
+msgid "Core diameter (mm)"
+msgstr "Диаметр сердечника (мм)"
+
+msgid "Flange height (mm)"
+msgstr "Высота щеки (мм)"
+
+msgid "Reel mass (kg)"
+msgstr "Масса барабана (кг)"
+
+msgid "Created at"
+msgstr "Создано"
+
+msgid "Updated at"
+msgstr "Обновлено"
+
+msgid "CRC — Cable Reels Calculator"
+msgstr "CRC — Калькулятор кабельных барабанов"
+

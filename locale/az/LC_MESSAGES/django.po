@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: az\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgid "Cable Reels Calculator"
+msgstr "Kabel Baraban Kalkulyatoru"
+
+msgid "Navigation"
+msgstr "Naviqasiya"
+
+msgid "Calculation"
+msgstr "Hesablama"
+
+msgid "New calculation"
+msgstr "Yeni hesablama"
+
+msgid "Calculation history"
+msgstr "Hesablama tarixçəsi"
+
+msgid "Reference data"
+msgstr "Məlumat bazası"
+
+msgid "Reel list"
+msgstr "Baraban siyahısı"
+
+msgid "Transport list"
+msgstr "Nəqliyyat siyahısı"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Toggle navigation"
+msgstr "Naviqasiyanı aç/bağla"
+
+msgid "Toggle light/dark theme"
+msgstr "Açıq/qaranlıq mövzunu dəyiş"
+
+msgid "Close"
+msgstr "Bağla"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Cancel"
+msgstr "Ləğv et"
+
+msgid "Save"
+msgstr "Yadda saxla"
+
+msgid "Calculate"
+msgstr "Hesabla"
+
+msgid "Add line"
+msgstr "Sətir əlavə et"
+
+msgid "Add reel"
+msgstr "Baraban əlavə et"
+
+msgid "Add transport"
+msgstr "Nəqliyyat əlavə et"
+
+msgid "Remove"
+msgstr "Çıxar"
+
+msgid "Remove line"
+msgstr "Sətiri sil"
+
+msgid "Order number"
+msgstr "Sifarişin nömrəsi"
+
+msgid "Transport"
+msgstr "Nəqliyyat"
+
+msgid "Winding margin override"
+msgstr "Sarım kənarının dəyişimi"
+
+msgid "Packing factor override"
+msgstr "Dolu faktorunun dəyişimi"
+
+msgid "Cable lines"
+msgstr "Kabel sətirləri"
+
+msgid "Cable code"
+msgstr "Kabelin kodu"
+
+msgid "Cable name"
+msgstr "Kabelin adı"
+
+msgid "Order length, m"
+msgstr "Sifariş uzunluğu, m"
+
+msgid "Mass, kg/m"
+msgstr "Kütlə, kq/m"
+
+msgid "Diameter, mm"
+msgstr "Diametr, mm"
+
+msgid "Conductors"
+msgstr "Damar sayı"
+
+msgid "Max length, m"
+msgstr "Maks. uzunluq, m"
+
+msgid "Results per cable line"
+msgstr "Hər kabel sətri üçün nəticə"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Reel"
+msgstr "Baraban"
+
+msgid "Length / reel, m"
+msgstr "Barabana uzunluq, m"
+
+msgid "Reels"
+msgstr "Baraban sayı"
+
+msgid "Reel fill"
+msgstr "Baraban doluluğu"
+
+msgid "Netto 1, kg"
+msgstr "Netto 1, kq"
+
+msgid "Brutto 1, kg"
+msgstr "Brutto 1, kq"
+
+msgid "Netto total, kg"
+msgstr "Netto ümumi, kq"
+
+msgid "Brutto total, kg"
+msgstr "Brutto ümumi, kq"
+
+msgid "Bending, mm"
+msgstr "Əyilmə, mm"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "No cable lines."
+msgstr "Kabel sətirləri yoxdur."
+
+msgid "Cable inputs"
+msgstr "Kabel daxiletmələri"
+
+msgid "Line items"
+msgstr "Sətir sayı"
+
+msgid "Date"
+msgstr "Tarix"
+
+msgid "Lines"
+msgstr "Sətirlər"
+
+msgid "No calculations yet."
+msgstr "Hesablama hələ yoxdur."
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Flange h, mm"
+msgstr "Çanaq h, mm"
+
+msgid "Flange height, mm"
+msgstr "Çanaq hündürlüyü, mm"
+
+msgid "Width, mm"
+msgstr "En, mm"
+
+msgid "Ø, mm"
+msgstr "Ø, mm"
+
+msgid "Core Ø, mm"
+msgstr "Boğaz Ø, mm"
+
+msgid "Barrel, mm"
+msgstr "Boğaz, mm"
+
+msgid "Type"
+msgstr "Növ"
+
+msgid "Mass, kg"
+msgstr "Kütlə, kq"
+
+msgid "Max load, kg"
+msgstr "Maks. yükləmə, kq"
+
+msgid "No reels yet."
+msgstr "Baraban hələ yoxdur."
+
+msgid "Core diameter, mm"
+msgstr "Boğaz diametri, mm"
+
+msgid "Barrel width, mm"
+msgstr "Boğaz eni, mm"
+
+msgid "Reel type"
+msgstr "Baraban növü"
+
+msgid "Reel mass, kg"
+msgstr "Baraban çəkisi, kq"
+
+msgid "Delete reel"
+msgstr "Barabanı sil"
+
+msgid "Height, mm"
+msgstr "Hündürlük, mm"
+
+msgid "Length, mm"
+msgstr "Uzunluq, mm"
+
+msgid "Transport name"
+msgstr "Nəqliyyat adı"
+
+msgid "No transport yet."
+msgstr "Nəqliyyat hələ yoxdur."
+
+msgid "Delete transport"
+msgstr "Nəqliyyatı sil"
+
+msgid "Delete calculation <strong>%(order)s</strong>? This cannot be undone."
+msgstr "<strong>%(order)s</strong> hesablamasını silmək? Bu geri qaytarıla bilməz."
+
+msgid "Delete reel <strong>%(name)s</strong>? This cannot be undone."
+msgstr "<strong>%(name)s</strong> barabanını silmək? Bu geri qaytarıla bilməz."
+
+msgid "Delete transport <strong>%(name)s</strong>? This cannot be undone."
+msgstr "<strong>%(name)s</strong> nəqliyyatını silmək? Bu geri qaytarıla bilməz."
+
+msgid "Add at least one cable line."
+msgstr "Ən azı bir kabel sətiri əlavə edin."
+
+msgid "Row %(n)s: %(err)s"
+msgstr "Sətir %(n)s: %(err)s"
+
+msgid "Order"
+msgstr "Sifariş"
+
+msgid "Orders"
+msgstr "Sifarişlər"
+
+msgid "Reel name"
+msgstr "Baraban adı"
+
+msgid "Reel count"
+msgstr "Baraban sayı"
+
+msgid "Reel type name"
+msgstr "Baraban növünün adı"
+
+msgid "Reel types"
+msgstr "Baraban növləri"
+
+msgid "Transports"
+msgstr "Nəqliyyatlar"
+
+msgid "Winding margin (mm)"
+msgstr "Sarım kənarı (mm)"
+
+msgid "Winding margin override (mm)"
+msgstr "Sarım kənarının dəyişimi (mm)"
+
+msgid "Packing factor"
+msgstr "Dolu faktoru"
+
+msgid "Bending radius multiplier (x cable diameter)"
+msgstr "Əyilmə radiusu çarpanı (× kabel diametri)"
+
+msgid "Use flange height to bound winding"
+msgstr "Sarımı məhdudləşdirmək üçün çanaq hündürlüyünü istifadə et"
+
+msgid "Unwound margin per flange side."
+msgstr "Hər çanaq tərəfindən sarılmayan kənar."
+
+msgid "Calculation settings"
+msgstr "Hesablama parametrləri"
+
+msgid "Cable line item"
+msgstr "Kabel sətiri"
+
+msgid "Cable line items"
+msgstr "Kabel sətirləri"
+
+msgid "Position"
+msgstr "Pozisiya"
+
+msgid "Conductor count"
+msgstr "Damar sayı"
+
+msgid "Cable mass (kg/m)"
+msgstr "Kabel çəkisi (kq/m)"
+
+msgid "Cable outer diameter (mm)"
+msgstr "Kabelin xarici diametri (mm)"
+
+msgid "Max production length (m)"
+msgstr "Maks. istehsalat uzunluğu (m)"
+
+msgid "Chosen reel"
+msgstr "Seçilmiş baraban"
+
+msgid "Length per reel (m)"
+msgstr "Barabana düşən uzunluq (m)"
+
+msgid "Netto 1 reel"
+msgstr "Netto 1 baraban"
+
+msgid "Brutto 1 reel"
+msgstr "Brutto 1 baraban"
+
+msgid "Netto total"
+msgstr "Netto ümumi"
+
+msgid "Brutto total"
+msgstr "Brutto ümumi"
+
+msgid "Netto 1 reel (kg)"
+msgstr "Netto 1 baraban (kq)"
+
+msgid "Brutto 1 reel (kg)"
+msgstr "Brutto 1 baraban (kq)"
+
+msgid "Netto total (kg)"
+msgstr "Netto ümumi (kq)"
+
+msgid "Brutto total (kg)"
+msgstr "Brutto ümumi (kq)"
+
+msgid "Bending radius"
+msgstr "Əyilmə radiusu"
+
+msgid "Bending radius (mm)"
+msgstr "Əyilmə radiusu (mm)"
+
+msgid "Warning"
+msgstr "Xəbərdarlıq"
+
+msgid "Diameter (mm)"
+msgstr "Diametr (mm)"
+
+msgid "Width (mm)"
+msgstr "En (mm)"
+
+msgid "Height (mm)"
+msgstr "Hündürlük (mm)"
+
+msgid "Length (mm)"
+msgstr "Uzunluq (mm)"
+
+msgid "Max load (kg)"
+msgstr "Maks. yükləmə (kq)"
+
+msgid "Barrel width (mm)"
+msgstr "Boğaz eni (mm)"
+
+msgid "Core diameter (mm)"
+msgstr "Boğaz diametri (mm)"
+
+msgid "Flange height (mm)"
+msgstr "Çanaq hündürlüyü (mm)"
+
+msgid "Reel mass (kg)"
+msgstr "Baraban çəkisi (kq)"
+
+msgid "Created at"
+msgstr "Yaradılma tarixi"
+
+msgid "Updated at"
+msgstr "Yenilənmə tarixi"
+
+msgid "CRC — Cable Reels Calculator"
+msgstr "CRC — Kabel Baraban Kalkulyatoru"
+

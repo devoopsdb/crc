@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgid "Cable Reels Calculator"
+msgstr "Kablo Makara Hesaplayıcı"
+
+msgid "Navigation"
+msgstr "Gezinme"
+
+msgid "Calculation"
+msgstr "Hesaplama"
+
+msgid "New calculation"
+msgstr "Yeni hesaplama"
+
+msgid "Calculation history"
+msgstr "Hesaplama geçmişi"
+
+msgid "Reference data"
+msgstr "Referans veriler"
+
+msgid "Reel list"
+msgstr "Makara listesi"
+
+msgid "Transport list"
+msgstr "Taşıma listesi"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Toggle navigation"
+msgstr "Gezinmeyi aç/kapat"
+
+msgid "Toggle light/dark theme"
+msgstr "Açık/koyu temayı değiştir"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Calculate"
+msgstr "Hesapla"
+
+msgid "Add line"
+msgstr "Satır ekle"
+
+msgid "Add reel"
+msgstr "Makara ekle"
+
+msgid "Add transport"
+msgstr "Taşıma ekle"
+
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "Remove line"
+msgstr "Satırı kaldır"
+
+msgid "Order number"
+msgstr "Sipariş numarası"
+
+msgid "Transport"
+msgstr "Taşıma"
+
+msgid "Winding margin override"
+msgstr "Sarım boşluğu geçersiz kılma"
+
+msgid "Packing factor override"
+msgstr "Doluluk faktörü geçersiz kılma"
+
+msgid "Cable lines"
+msgstr "Kablo satırları"
+
+msgid "Cable code"
+msgstr "Kablo kodu"
+
+msgid "Cable name"
+msgstr "Kablo adı"
+
+msgid "Order length, m"
+msgstr "Sipariş uzunluğu, m"
+
+msgid "Mass, kg/m"
+msgstr "Kütle, kg/m"
+
+msgid "Diameter, mm"
+msgstr "Çap, mm"
+
+msgid "Conductors"
+msgstr "İletkenler"
+
+msgid "Max length, m"
+msgstr "Maks. uzunluk, m"
+
+msgid "Results per cable line"
+msgstr "Her kablo satırı için sonuç"
+
+msgid "Cable"
+msgstr "Kablo"
+
+msgid "Reel"
+msgstr "Makara"
+
+msgid "Length / reel, m"
+msgstr "Makara başına uzunluk, m"
+
+msgid "Reels"
+msgstr "Makaralar"
+
+msgid "Reel fill"
+msgstr "Makara doluluğu"
+
+msgid "Netto 1, kg"
+msgstr "Netto 1, kg"
+
+msgid "Brutto 1, kg"
+msgstr "Brutto 1, kg"
+
+msgid "Netto total, kg"
+msgstr "Netto toplam, kg"
+
+msgid "Brutto total, kg"
+msgstr "Brutto toplam, kg"
+
+msgid "Bending, mm"
+msgstr "Bükülme, mm"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "OK"
+msgstr "Tamam"
+
+msgid "No cable lines."
+msgstr "Kablo satırı yok."
+
+msgid "Cable inputs"
+msgstr "Kablo girişleri"
+
+msgid "Line items"
+msgstr "Satır sayısı"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Lines"
+msgstr "Satırlar"
+
+msgid "No calculations yet."
+msgstr "Henüz hesaplama yok."
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Flange h, mm"
+msgstr "Yanak h, mm"
+
+msgid "Flange height, mm"
+msgstr "Yanak yüksekliği, mm"
+
+msgid "Width, mm"
+msgstr "Genişlik, mm"
+
+msgid "Ø, mm"
+msgstr "Ø, mm"
+
+msgid "Core Ø, mm"
+msgstr "Göbek Ø, mm"
+
+msgid "Barrel, mm"
+msgstr "Gövde, mm"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Mass, kg"
+msgstr "Kütle, kg"
+
+msgid "Max load, kg"
+msgstr "Maks. yük, kg"
+
+msgid "No reels yet."
+msgstr "Henüz makara yok."
+
+msgid "Core diameter, mm"
+msgstr "Göbek çapı, mm"
+
+msgid "Barrel width, mm"
+msgstr "Gövde genişliği, mm"
+
+msgid "Reel type"
+msgstr "Makara tipi"
+
+msgid "Reel mass, kg"
+msgstr "Makara kütlesi, kg"
+
+msgid "Delete reel"
+msgstr "Makarayı sil"
+
+msgid "Height, mm"
+msgstr "Yükseklik, mm"
+
+msgid "Length, mm"
+msgstr "Uzunluk, mm"
+
+msgid "Transport name"
+msgstr "Taşıma adı"
+
+msgid "No transport yet."
+msgstr "Henüz taşıma yok."
+
+msgid "Delete transport"
+msgstr "Taşımayı sil"
+
+msgid "Delete calculation <strong>%(order)s</strong>? This cannot be undone."
+msgstr "<strong>%(order)s</strong> hesaplamasını sil? Bu geri alınamaz."
+
+msgid "Delete reel <strong>%(name)s</strong>? This cannot be undone."
+msgstr "<strong>%(name)s</strong> makarasını sil? Bu geri alınamaz."
+
+msgid "Delete transport <strong>%(name)s</strong>? This cannot be undone."
+msgstr "<strong>%(name)s</strong> taşımasını sil? Bu geri alınamaz."
+
+msgid "Add at least one cable line."
+msgstr "En az bir kablo satırı ekleyin."
+
+msgid "Row %(n)s: %(err)s"
+msgstr "Satır %(n)s: %(err)s"
+
+msgid "Order"
+msgstr "Sipariş"
+
+msgid "Orders"
+msgstr "Siparişler"
+
+msgid "Reel name"
+msgstr "Makara adı"
+
+msgid "Reel count"
+msgstr "Makara sayısı"
+
+msgid "Reel type name"
+msgstr "Makara tipi adı"
+
+msgid "Reel types"
+msgstr "Makara tipleri"
+
+msgid "Transports"
+msgstr "Taşımalar"
+
+msgid "Winding margin (mm)"
+msgstr "Sarım boşluğu (mm)"
+
+msgid "Winding margin override (mm)"
+msgstr "Sarım boşluğu geçersiz kılma (mm)"
+
+msgid "Packing factor"
+msgstr "Doluluk faktörü"
+
+msgid "Bending radius multiplier (x cable diameter)"
+msgstr "Bükülme yarıçapı çarpanı (× kablo çapı)"
+
+msgid "Use flange height to bound winding"
+msgstr "Sarımı yanak yüksekliğiyle sınırla"
+
+msgid "Unwound margin per flange side."
+msgstr "Her yanak tarafında sarılmayan boşluk."
+
+msgid "Calculation settings"
+msgstr "Hesaplama ayarları"
+
+msgid "Cable line item"
+msgstr "Kablo satırı"
+
+msgid "Cable line items"
+msgstr "Kablo satırları"
+
+msgid "Position"
+msgstr "Konum"
+
+msgid "Conductor count"
+msgstr "İletken sayısı"
+
+msgid "Cable mass (kg/m)"
+msgstr "Kablo kütlesi (kg/m)"
+
+msgid "Cable outer diameter (mm)"
+msgstr "Kablo dış çapı (mm)"
+
+msgid "Max production length (m)"
+msgstr "Maks. üretim uzunluğu (m)"
+
+msgid "Chosen reel"
+msgstr "Seçili makara"
+
+msgid "Length per reel (m)"
+msgstr "Makara başına uzunluk (m)"
+
+msgid "Netto 1 reel"
+msgstr "Netto 1 makara"
+
+msgid "Brutto 1 reel"
+msgstr "Brutto 1 makara"
+
+msgid "Netto total"
+msgstr "Netto toplam"
+
+msgid "Brutto total"
+msgstr "Brutto toplam"
+
+msgid "Netto 1 reel (kg)"
+msgstr "Netto 1 makara (kg)"
+
+msgid "Brutto 1 reel (kg)"
+msgstr "Brutto 1 makara (kg)"
+
+msgid "Netto total (kg)"
+msgstr "Netto toplam (kg)"
+
+msgid "Brutto total (kg)"
+msgstr "Brutto toplam (kg)"
+
+msgid "Bending radius"
+msgstr "Bükülme yarıçapı"
+
+msgid "Bending radius (mm)"
+msgstr "Bükülme yarıçapı (mm)"
+
+msgid "Warning"
+msgstr "Uyarı"
+
+msgid "Diameter (mm)"
+msgstr "Çap (mm)"
+
+msgid "Width (mm)"
+msgstr "Genişlik (mm)"
+
+msgid "Height (mm)"
+msgstr "Yükseklik (mm)"
+
+msgid "Length (mm)"
+msgstr "Uzunluk (mm)"
+
+msgid "Max load (kg)"
+msgstr "Maks. yük (kg)"
+
+msgid "Barrel width (mm)"
+msgstr "Gövde genişliği (mm)"
+
+msgid "Core diameter (mm)"
+msgstr "Göbek çapı (mm)"
+
+msgid "Flange height (mm)"
+msgstr "Yanak yüksekliği (mm)"
+
+msgid "Reel mass (kg)"
+msgstr "Makara kütlesi (kg)"
+
+msgid "Created at"
+msgstr "Oluşturulma"
+
+msgid "Updated at"
+msgstr "Güncellenme"
+
+msgid "CRC — Cable Reels Calculator"
+msgstr "CRC — Kablo Makara Hesaplayıcı"
+
