@@ -1,97 +1,87 @@
-from collections import namedtuple
+# pyright: reportAttributeAccessIssue=false, reportArgumentType=false, reportIncompatibleMethodOverride=false
+from types import SimpleNamespace
 
 from django.contrib import messages
 from django.db import transaction
-from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView, FormView, ListView
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, View
 
 from .calc import CalculationError, compute_line  # type: ignore[import-unresolved]
-from .forms import CableCalForm, ReelsListForm, TransportListForm
-from .models import CableCal, ReelsList, TransportList
-
-# Default winding parameters. Replaced by the CalculationSettings singleton
-# in Phase 2 (data-model normalization), kept here so the formula fix lands
-# before the model refactor.
-WINDING_MARGIN_MM = 50.0
-PACKING_FACTOR = 0.93
-BENDING_RADIUS_MULTIPLIER = 10.0
+from .forms import CableCalForm, CableLineItemFormSet, ReelsListForm, TransportListForm
+from .models import CableCal, CableLineItem, CalculationSettings, ReelsList, TransportList
 
 
-class _CalcSettings:
-    """Lightweight settings adapter consumed by :func:`compute_line`."""
+class CableCalView(View):
+    """Enter a multi-line cable order and compute reel allocation per line."""
 
-    winding_margin_mm = WINDING_MARGIN_MM
-    packing_factor = PACKING_FACTOR
-    bending_radius_multiplier = BENDING_RADIUS_MULTIPLIER
-
-
-_Line = namedtuple(
-    "_Line",
-    ["cod", "name", "con_num", "order_len", "max_len", "mass", "diameter"],
-)
-
-
-class CableCalView(FormView):
     template_name = "app/cable_cal.html"
-    form_class = CableCalForm
 
-    def get_success_url(self):
-        pk = self.object.pk
-        return reverse("app:cable_detail", kwargs={"pk": pk})
+    def get(self, request):
+        return render(
+            request,
+            self.template_name,
+            {"form": CableCalForm(), "formset": CableLineItemFormSet()},
+        )
 
-    def form_valid(self, form):
+    def post(self, request):
+        form = CableCalForm(request.POST)
+        formset = CableLineItemFormSet(request.POST)
+        if not form.is_valid() or not formset.is_valid():
+            return render(
+                request, self.template_name, {"form": form, "formset": formset}
+            )
+
+        settings = CalculationSettings.get_solo()
+        margin = form.cleaned_data.get("margin_override") or settings.winding_margin_mm
+        packing = form.cleaned_data.get("packing_override") or settings.packing_factor
+        adapter = SimpleNamespace(
+            winding_margin_mm=margin,
+            packing_factor=packing,
+            bending_radius_multiplier=settings.bending_radius_multiplier,
+        )
         transport = form.cleaned_data["transport"]
-        reels = list(ReelsList.objects.all())  # type: ignore[attr-defined]
-        settings = _CalcSettings()
-
-        cods = self.request.POST.getlist("cod")
-        names = self.request.POST.getlist("name")
-        order_lens = self.request.POST.getlist("order_len")
-        masses = self.request.POST.getlist("mass")
-        diameters = self.request.POST.getlist("diameter")
-        con_nums = self.request.POST.getlist("con_num")
-        max_lens = self.request.POST.getlist("max_len")
+        reels = list(ReelsList.objects.all())
 
         results = []
         errors = []
-        for index, (cod, name, olen, mass, dia, con, mlen) in enumerate(
-            zip(cods, names, order_lens, masses, diameters, con_nums, max_lens)
-        ):
-            line = _Line(cod, name, con, olen, mlen, mass, dia)
+        for index, line_form in enumerate(formset):
+            cleaned = line_form.cleaned_data
+            if cleaned.get("DELETE") or not cleaned.get("diameter"):
+                continue
+            line = line_form.save(commit=False)
             try:
-                results.append(compute_line(line, reels, settings, transport))
+                results.append((line_form, compute_line(line, reels, adapter, transport)))
             except CalculationError as exc:
-                errors.append(f"Row {index + 1}: {exc}")
+                errors.append(_("Row %(n)s: %(err)s") % {"n": index + 1, "err": str(exc)})
 
-        if errors:
+        if errors or not results:
             for exc in errors:
-                messages.error(self.request, exc)
-            return self.form_invalid(form)
-
-        def _join(selector):
-            return "\n".join(str(selector(result)) for result in results)
+                messages.error(request, exc)
+            if not results:
+                messages.error(request, _("Add at least one cable line."))
+            return render(
+                request, self.template_name, {"form": form, "formset": formset}
+            )
 
         with transaction.atomic():  # type: ignore
-            self.object = CableCal.objects.create(  # type: ignore[attr-defined]
-                order_num=form.cleaned_data["order_num"],
-                transport=transport,
-                cod="\n".join(cods),
-                name="\n".join(names),
-                order_len="\n".join(order_lens),
-                mass="\n".join(masses),
-                diameter="\n".join(diameters),
-                con_num="\n".join(con_nums),
-                max_len="\n".join(max_lens),
-                reel_name=_join(lambda r: r.reel_name),
-                reel_num=_join(lambda r: r.reel_num),
-                reel_len=_join(lambda r: r.reel_len),
-                netto_1=_join(lambda r: r.netto_1),
-                brutto_1=_join(lambda r: r.brutto_1),
-                netto_all=_join(lambda r: r.netto_all),
-                brutto_all=_join(lambda r: r.brutto_all),
-                bending_radius=_join(lambda r: r.bending_radius),
-            )
-        return super().form_valid(form)
+            calc = form.save()
+            for position, (line_form, result) in enumerate(results):
+                item = line_form.save(commit=False)
+                item.cable_cal = calc
+                item.position = position
+                item.reel_id = result.reel_pk
+                item.reel_len = result.reel_len
+                item.reel_num = result.reel_num
+                item.netto_1 = result.netto_1
+                item.brutto_1 = result.brutto_1
+                item.netto_all = result.netto_all
+                item.brutto_all = result.brutto_all
+                item.bending_radius = result.bending_radius
+                item.warning = result.warning or ""
+                item.save()
+        return redirect(calc.get_absolute_url())
 
 
 class CableCalList(ListView):
