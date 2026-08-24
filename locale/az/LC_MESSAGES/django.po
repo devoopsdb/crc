@@ -375,6 +375,42 @@ msgstr "Yaradılma tarixi"
 msgid "Updated at"
 msgstr "Yenilənmə tarixi"
 
+msgid "Cable Calculator"
+msgstr "Kabel Kalkulyatoru"
+
 msgid "CRC — Cable Reels Calculator"
 msgstr "CRC — Kabel Baraban Kalkulyatoru"
+
+msgid "Calculations are for reference and planning purposes only."
+msgstr "Hesablamalar yalnız məlumat və planlaşdırma xarakteri daşıyır."
+
+msgid "Order length must be positive"
+msgstr "Sifariş uzunluğu müsbət olmalıdır"
+
+msgid "Max production length must be positive"
+msgstr "Maks. istehsalat uzunluğu müsbət olmalıdır"
+
+msgid "Cable mass cannot be negative"
+msgstr "Kabel kütləsi mənfi ola bilməz"
+
+msgid "Cable diameter must be positive"
+msgstr "Kabel diametri müsbət olmalıdır"
+
+msgid "Cable diameter exceeds reel barrel width"
+msgstr "Kabel diametri barabanın boğaz enindən böyükdür"
+
+msgid "Winding diameter not greater than core diameter"
+msgstr "Sarım diametri boğaz diametrindən böyük deyil"
+
+msgid "No reel can hold this cable within the max production length"
+msgstr "Maksimum istehsalat uzunluğunda bu kabeli tuta bilən baraban tapılmadı"
+
+msgid "Reel max load exceeded"
+msgstr "Barabanın maksimum yüklənməsi aşılıb"
+
+msgid "Transport max load exceeded"
+msgstr "Nəqliyyatın maksimum yüklənməsi aşılıb"
+
+msgid "Cable wider than reel flange width"
+msgstr "Kabel barabanın çanaq enindən genişdir"
 

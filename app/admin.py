@@ -30,6 +30,7 @@ class CableLineItemInline(admin.TabularInline):
 class CableCalAdmin(admin.ModelAdmin):
     list_display = ("id", "order_num", "transport", "created_at")
     list_display_links = ("id", "order_num")
+    list_select_related = ("transport",)
     search_fields = ("order_num",)
     inlines = [CableLineItemInline]
 
@@ -46,6 +47,7 @@ class CalculationSettingsAdmin(admin.ModelAdmin):
 class ReelsListAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "diameter", "reel_type", "created_at", "updated_at")
     list_display_links = ("id", "name")
+    list_select_related = ("reel_type",)
     search_fields = ("name", "diameter")
 
 

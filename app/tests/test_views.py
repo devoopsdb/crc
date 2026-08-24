@@ -75,3 +75,94 @@ class CableCalViewTests(TestCase):
         response = self.client.post(reverse("app:cable_cal"), data)
         self.assertEqual(response.status_code, 200)  # re-renders with error
         self.assertFalse(CableCal.objects.filter(order_num="ORD-T1").exists())
+
+
+class CableCalListViewTests(TestCase):
+    def setUp(self):
+        self.transport = TransportList.objects.create(
+            name="TIR", length=13000, width=2450, height=2700, max_load=24000
+        )
+        self.calc = CableCal.objects.create(order_num="ORD-L1", transport=self.transport)
+
+    def test_list_renders_with_annotated_count(self):
+        response = self.client.get(reverse("app:cable_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "ORD-L1")
+        self.assertEqual(response.context["cable_cal"][0].line_items_count, 0)
+
+
+class CableCalDetailViewTests(TestCase):
+    def setUp(self):
+        self.transport = TransportList.objects.create(
+            name="TIR", length=13000, width=2450, height=2700, max_load=24000
+        )
+        self.calc = CableCal.objects.create(order_num="ORD-D1", transport=self.transport)
+
+    def test_detail_renders(self):
+        response = self.client.get(reverse("app:cable_detail", kwargs={"pk": self.calc.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "ORD-D1")
+
+    def test_delete_view_post_removes_calc(self):
+        response = self.client.post(reverse("app:cable_del", kwargs={"pk": self.calc.pk}))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(CableCal.objects.filter(pk=self.calc.pk).exists())
+
+
+class ReelsListViewTests(TestCase):
+    def setUp(self):
+        self.reel = make_reel(name="Reel-Test-1")
+
+    def test_reels_list_renders(self):
+        response = self.client.get(reverse("app:reels_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Reel-Test-1")
+
+    def test_reels_detail_renders(self):
+        response = self.client.get(reverse("app:reels_list_detail", kwargs={"pk": self.reel.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Reel-Test-1")
+
+    def test_reels_create(self):
+        data = {
+            "name": "Reel-New", "height": 250, "width": 600, "diameter": 1200,
+            "diameter_neck": 600, "length_neck": 600, "mass": 130, "max_load": 2500,
+        }
+        response = self.client.post(reverse("app:reels_add"), data)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(ReelsList.objects.filter(name="Reel-New").exists())
+
+    def test_reels_delete(self):
+        response = self.client.post(reverse("app:reels_del", kwargs={"pk": self.reel.pk}))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(ReelsList.objects.filter(pk=self.reel.pk).exists())
+
+
+class TransportListViewTests(TestCase):
+    def setUp(self):
+        self.transport = TransportList.objects.create(
+            name="Truck-1", length=10000, width=2400, height=2600, max_load=20000
+        )
+
+    def test_transport_list_renders(self):
+        response = self.client.get(reverse("app:transport_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Truck-1")
+
+    def test_transport_detail_renders(self):
+        response = self.client.get(reverse("app:transport_list_detail", kwargs={"pk": self.transport.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Truck-1")
+
+    def test_transport_create(self):
+        data = {
+            "name": "Truck-New", "length": 12000, "width": 2450, "height": 2700, "max_load": 22000,
+        }
+        response = self.client.post(reverse("app:transport_add"), data)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(TransportList.objects.filter(name="Truck-New").exists())
+
+    def test_transport_delete(self):
+        response = self.client.post(reverse("app:transport_del", kwargs={"pk": self.transport.pk}))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(TransportList.objects.filter(pk=self.transport.pk).exists())

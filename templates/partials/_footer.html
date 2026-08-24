@@ -1,5 +1,9 @@
 {% load i18n %}
-<footer class="app-footer">
-  {% blocktrans %}CRC — Cable Reels Calculator{% endblocktrans %} ·
-  <a href="https://www.linkedin.com/in/murad-h-253bb5223" target="_blank" rel="noopener">Murad</a>
+<footer class="app-footer text-center">
+  <div class="text-muted small">
+    &copy; {% now "Y" %} <strong>{% trans "CRC — Cable Reels Calculator" %}</strong>
+  </div>
+  <div class="text-muted small opacity-75 mt-1">
+    {% trans "Calculations are for reference and planning purposes only." %}
+  </div>
 </footer>

@@ -27,7 +27,7 @@
                 <td class="row-num text-center">{{ forloop.counter }}</td>
                 <td><a href="{{ item.get_absolute_url }}">{{ item.order_num }}</a></td>
                 <td>{{ item.created_at|date:"DATE_FORMAT" }}</td>
-                <td class="tnum text-center">{{ item.line_items.count }}</td>
+                <td class="tnum text-center">{{ item.line_items_count|default:item.line_items.count }}</td>
               </tr>
             {% endfor %}
           </tbody>

@@ -81,6 +81,7 @@
       if (!template) return;
       var row = template.cloneNode(true);
       row.removeAttribute("data-formset-empty");
+      row.setAttribute("data-formset-row", "");
       row.classList.remove("d-none", "visually-hidden-fake-row");
       row.removeAttribute("aria-hidden");
       // Replace __prefix__ in element attributes (id/name/for/...) with the
@@ -103,7 +104,7 @@
     var delBtn = e.target.closest("[data-formset-delete]");
     if (delBtn) {
       e.preventDefault();
-      var rowEl = delBtn.closest("[data-formset-row]");
+      var rowEl = delBtn.closest("[data-formset-row]") || delBtn.closest("tr");
       if (!rowEl) return;
       var delInput = rowEl.querySelector("input[name$='-DELETE']");
       if (delInput) {

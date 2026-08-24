@@ -3,6 +3,7 @@ from types import SimpleNamespace
 
 from django.contrib import messages
 from django.db import transaction
+from django.db.models import Count
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -89,11 +90,22 @@ class CableCalList(ListView):
     template_name = "app/cable_cal_list.html"
     context_object_name = "cable_cal"
 
+    def get_queryset(self):
+        return super().get_queryset().annotate(line_items_count=Count("line_items"))
+
 
 class CableCalDetail(DetailView):
     model = CableCal
     template_name = "app/cable_cal_detail.html"
     context_object_name = "cable_cal"
+
+    def get_queryset(self):
+        return (
+            super()
+            .get_queryset()
+            .select_related("transport")
+            .prefetch_related("line_items__reel")
+        )
 
 
 class CableCalDel(DeleteView):
@@ -107,11 +119,17 @@ class ReelsListView(ListView):
     template_name = "app/reels.html"
     context_object_name = "reels"
 
+    def get_queryset(self):
+        return super().get_queryset().select_related("reel_type")
+
 
 class ReelsListDetail(DetailView):
     model = ReelsList
     template_name = "app/reels_detail.html"
     context_object_name = "reels"
+
+    def get_queryset(self):
+        return super().get_queryset().select_related("reel_type")
 
 
 class ReelsListCreate(CreateView):

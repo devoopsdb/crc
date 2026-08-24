@@ -375,6 +375,42 @@ msgstr "Создано"
 msgid "Updated at"
 msgstr "Обновлено"
 
+msgid "Cable Calculator"
+msgstr "Калькулятор кабеля"
+
 msgid "CRC — Cable Reels Calculator"
 msgstr "CRC — Калькулятор кабельных барабанов"
+
+msgid "Calculations are for reference and planning purposes only."
+msgstr "Расчёты носят справочный характер и предназначены для предварительного планирования."
+
+msgid "Order length must be positive"
+msgstr "Длина заказа должна быть положительной"
+
+msgid "Max production length must be positive"
+msgstr "Макс. длина производства должна быть положительной"
+
+msgid "Cable mass cannot be negative"
+msgstr "Масса кабеля не может быть отрицательной"
+
+msgid "Cable diameter must be positive"
+msgstr "Диаметр кабеля должен быть положительным"
+
+msgid "Cable diameter exceeds reel barrel width"
+msgstr "Диаметр кабеля превышает ширину барабана"
+
+msgid "Winding diameter not greater than core diameter"
+msgstr "Диаметр намотки не превышает диаметр сердечника"
+
+msgid "No reel can hold this cable within the max production length"
+msgstr "Ни один барабан не вмещает этот кабель в пределах макс. длины"
+
+msgid "Reel max load exceeded"
+msgstr "Превышена макс. нагрузка барабана"
+
+msgid "Transport max load exceeded"
+msgstr "Превышена макс. нагрузка транспорта"
+
+msgid "Cable wider than reel flange width"
+msgstr "Кабель шире фланца барабана"
 

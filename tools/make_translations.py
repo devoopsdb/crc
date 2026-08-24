@@ -159,7 +159,24 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "Reel mass (kg)": {"az": "Baraban çəkisi (kq)", "ru": "Масса барабана (кг)", "tr": "Makara kütlesi (kg)"},
     "Created at": {"az": "Yaradılma tarixi", "ru": "Создано", "tr": "Oluşturulma"},
     "Updated at": {"az": "Yenilənmə tarixi", "ru": "Обновлено", "tr": "Güncellenme"},
+    "Cable Calculator": {"az": "Kabel Kalkulyatoru", "ru": "Калькулятор кабеля", "tr": "Kablo Hesaplayıcı"},
     "CRC — Cable Reels Calculator": {"az": "CRC — Kabel Baraban Kalkulyatoru", "ru": "CRC — Калькулятор кабельных барабанов", "tr": "CRC — Kablo Makara Hesaplayıcı"},
+    "Calculations are for reference and planning purposes only.": {
+        "az": "Hesablamalar yalnız məlumat və planlaşdırma xarakteri daşıyır.",
+        "ru": "Расчёты носят справочный характер и предназначены для предварительного планирования.",
+        "tr": "Hesaplamalar yalnızca referans ve planlama amaçlıdır.",
+    },
+    # ---- Errors & calculation warnings ----
+    "Order length must be positive": {"az": "Sifariş uzunluğu müsbət olmalıdır", "ru": "Длина заказа должна быть положительной", "tr": "Sipariş uzunluğu pozitif olmalıdır"},
+    "Max production length must be positive": {"az": "Maks. istehsalat uzunluğu müsbət olmalıdır", "ru": "Макс. длина производства должна быть положительной", "tr": "Maks. üretim uzunluğu pozitif olmalıdır"},
+    "Cable mass cannot be negative": {"az": "Kabel kütləsi mənfi ola bilməz", "ru": "Масса кабеля не может быть отрицательной", "tr": "Kablo kütlesi negatif olamaz"},
+    "Cable diameter must be positive": {"az": "Kabel diametri müsbət olmalıdır", "ru": "Диаметр кабеля должен быть положительным", "tr": "Kablo çapı pozitif olmalıdır"},
+    "Cable diameter exceeds reel barrel width": {"az": "Kabel diametri barabanın boğaz enindən böyükdür", "ru": "Диаметр кабеля превышает ширину барабана", "tr": "Kablo çapı makara gövde genişliğini aşıyor"},
+    "Winding diameter not greater than core diameter": {"az": "Sarım diametri boğaz diametrindən böyük deyil", "ru": "Диаметр намотки не превышает диаметр сердечника", "tr": "Sarım çapı göbek çapından büyük değil"},
+    "No reel can hold this cable within the max production length": {"az": "Maksimum istehsalat uzunluğunda bu kabeli tuta bilən baraban tapılmadı", "ru": "Ни один барабан не вмещает этот кабель в пределах макс. длины", "tr": "Maksimum üretim uzunluğunda bu kabloyu alabilecek makara bulunamadı"},
+    "Reel max load exceeded": {"az": "Barabanın maksimum yüklənməsi aşılıb", "ru": "Превышена макс. нагрузка барабана", "tr": "Makara maksimum yükü aşıldı"},
+    "Transport max load exceeded": {"az": "Nəqliyyatın maksimum yüklənməsi aşılıb", "ru": "Превышена макс. нагрузка транспорта", "tr": "Taşıma maksimum yükü aşıldı"},
+    "Cable wider than reel flange width": {"az": "Kabel barabanın çanaq enindən genişdir", "ru": "Кабель шире фланца барабана", "tr": "Kablo makara flanş genişliğinden daha geniş"},
 }
 
 

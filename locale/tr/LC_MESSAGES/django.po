@@ -375,6 +375,42 @@ msgstr "Oluşturulma"
 msgid "Updated at"
 msgstr "Güncellenme"
 
+msgid "Cable Calculator"
+msgstr "Kablo Hesaplayıcı"
+
 msgid "CRC — Cable Reels Calculator"
 msgstr "CRC — Kablo Makara Hesaplayıcı"
+
+msgid "Calculations are for reference and planning purposes only."
+msgstr "Hesaplamalar yalnızca referans ve planlama amaçlıdır."
+
+msgid "Order length must be positive"
+msgstr "Sipariş uzunluğu pozitif olmalıdır"
+
+msgid "Max production length must be positive"
+msgstr "Maks. üretim uzunluğu pozitif olmalıdır"
+
+msgid "Cable mass cannot be negative"
+msgstr "Kablo kütlesi negatif olamaz"
+
+msgid "Cable diameter must be positive"
+msgstr "Kablo çapı pozitif olmalıdır"
+
+msgid "Cable diameter exceeds reel barrel width"
+msgstr "Kablo çapı makara gövde genişliğini aşıyor"
+
+msgid "Winding diameter not greater than core diameter"
+msgstr "Sarım çapı göbek çapından büyük değil"
+
+msgid "No reel can hold this cable within the max production length"
+msgstr "Maksimum üretim uzunluğunda bu kabloyu alabilecek makara bulunamadı"
+
+msgid "Reel max load exceeded"
+msgstr "Makara maksimum yükü aşıldı"
+
+msgid "Transport max load exceeded"
+msgstr "Taşıma maksimum yükü aşıldı"
+
+msgid "Cable wider than reel flange width"
+msgstr "Kablo makara flanş genişliğinden daha geniş"
 

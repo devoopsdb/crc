@@ -105,6 +105,13 @@ def compute_line(line, reels, settings, transport) -> LineResult:
     except (ValueError, TypeError, AttributeError) as exc:
         raise CalculationError(f"Invalid line/settings value: {exc}") from exc
 
+    if order_len <= 0:
+        raise CalculationError("Order length must be positive")
+    if max_len <= 0:
+        raise CalculationError("Max production length must be positive")
+    if mass < 0:
+        raise CalculationError("Cable mass cannot be negative")
+
     candidates: list[tuple[float, Any]] = []  # (length, reel)
     for reel in reels:
         try:

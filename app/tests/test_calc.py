@@ -109,3 +109,18 @@ class ComputeLineTests(SimpleTestCase):
     def test_bending_radius(self):
         result = compute_line(FakeLine(), [FakeReel()], FakeSettings(), FakeTransport())
         self.assertAlmostEqual(result.bending_radius, 14.3 * 10.0, places=2)
+
+    def test_order_len_non_positive_raises(self):
+        line = FakeLine(order_len="0")
+        with self.assertRaises(CalculationError):
+            compute_line(line, [FakeReel()], FakeSettings(), FakeTransport())
+
+    def test_max_len_non_positive_raises(self):
+        line = FakeLine(max_len="0")
+        with self.assertRaises(CalculationError):
+            compute_line(line, [FakeReel()], FakeSettings(), FakeTransport())
+
+    def test_negative_mass_raises(self):
+        line = FakeLine(mass="-1")
+        with self.assertRaises(CalculationError):
+            compute_line(line, [FakeReel()], FakeSettings(), FakeTransport())
